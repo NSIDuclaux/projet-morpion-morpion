@@ -43,6 +43,5 @@ def choix_joueur():
 
 
 #a gagné (a faire)
-
-
+#asdasdasd
 
