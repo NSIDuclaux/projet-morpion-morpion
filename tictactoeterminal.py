@@ -37,7 +37,7 @@ def choix_joueur():
     else:
         return "Erreur de comptage"
 
-        
+
 
 #verification de tour (a faire)
 
