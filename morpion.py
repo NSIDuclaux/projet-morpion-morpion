@@ -17,7 +17,7 @@ class Partie:
         ...
 
     def grille_pleine(self):
-        if self.partie.nb_tours() == 9:
+        if self.partie.nb_tours == 9:
             return True
 
     def fin_partie(self):
