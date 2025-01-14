@@ -4,8 +4,7 @@ def creation_jeu():
     morpion = [[" "," "," "],
                [" "," "," "],
                [" "," "," "]]
-    compteur = 0
-    return morpion, compteur
+    return morpion, 0
 
 # initialisation/ premiere partie
 def premiere_partie():
@@ -23,7 +22,7 @@ def afficher_morpion(morpion):
         print(morpion[ligne])
 
 #debut partie et toutes les parties jouées par x (fait)
-def tour_joueur(morpion):
+def tour_joueur(morpion, joueur):
     ligne = int(input(f"{joueur}, entrez la ligne (1-3): ")) - 1
     colonne = int(input(f"{joueur}, entrez la colonne (1-3): ")) - 1
 
@@ -37,16 +36,17 @@ def tour_joueur(morpion):
 
 #lancer une partie apres la premiere (fait)
 def lancer_tour():
-    if compteur%2 == 1:
-        tour_x()
-    elif compteur%2 == 0:
-        tour_o()
-    else:
-        return "Erreur de comptage"
+    joueur_actuel = "X"
+    morpion, compteur = creation_jeu()
+    jeu_en_cours = True
+
+    while jeu_en_cours:
+        afficher_morpion(morpion)
+        print(f"c'est au tour de {joueur_actuel}")
 
 
 #a gagné x ?(fait)
-def a_gagne_x():
+def a_gagne_x(morpion):
     if morpion[0][0] == morpion[0][1] == morpion[0][2] and morpion[0][0] == "X":
         arrete_partie()
         return True
@@ -70,7 +70,7 @@ def a_gagne_x():
         return True
 
 #a gagné o ?(fait)
-def a_gagne_o():
+def a_gagne_o(morpion):
     if morpion[0][0] == morpion[0][1] == morpion[0][2] and morpion[0][0] == "O":
         arrete_partie()
         return True
@@ -99,4 +99,4 @@ def gagnant():
         return "X"
     elif a_gagne_o() == True:
         return "O"
-    
+     
