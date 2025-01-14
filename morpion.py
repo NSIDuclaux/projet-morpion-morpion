@@ -26,4 +26,4 @@ class Partie:
         if morpion.grille_pleine() == True:
             morpion.destroy()
             return "Égalité"
-        
+        elif
