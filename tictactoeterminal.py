@@ -17,7 +17,7 @@ def premiere_partie():
 
 def afficher_morpion:
     for ligne in morpion:
-        print(ligne)
+        print(morpion[ligne])
 
 #debut partie et toutes les parties jouées par x
 def tour_x():
@@ -64,8 +64,60 @@ def lancer_tour():
 
 
 
-#verification de doublon (a faire)
-
 
 #a gagné (a faire)
+
+def a_gagne_x():
+    if morpion[0][0] == morpion[0][1] == morpion[0][2] and morpion[0][0] == "X":
+        arrete_partie()
+        return True
+    elif morpion[1][0] == morpion[1][1] == morpion[1][2] and morpion[1][0] == "X":
+        arrete_partie()
+        return True
+    elif morpion[2][0] == morpion[2][1] == morpion[2][2] and morpion[2][0] == "X":
+        arrete_partie()
+        return True
+    elif morpion[0][0] == morpion[1][1] == morpion[2][2] and morpion[0][0] == "X":
+        arrete_partie()
+        return True
+    elif morpion[0][2] == morpion[1][1] == morpion[2][0] and morpion[0][2] == "X":
+        arrete_partie()
+        return True
+    elif morpion[0][0] == morpion[1][0] == morpion[2][0] and morpion[0][0] == "X":
+        arrete_partie()
+        return True
+    elif morpion[0][1] == morpion[1][1] == morpion[2][1] and morpion[0][1] == "X":
+        arrete_partie()
+        return True
+    
+def a_gagne_o():
+    if morpion[0][0] == morpion[0][1] == morpion[0][2] and morpion[0][0] == "O":
+        arrete_partie()
+        return True
+    elif morpion[1][0] == morpion[1][1] == morpion[1][2] and morpion[1][0] == "O":
+        arrete_partie()
+        return True
+    elif morpion[2][0] == morpion[2][1] == morpion[2][2] and morpion[2][0] == "O":
+        arrete_partie()
+        return True
+    elif morpion[0][0] == morpion[1][1] == morpion[2][2] and morpion[0][0] == "O":
+        arrete_partie()
+        return True
+    elif morpion[0][2] == morpion[1][1] == morpion[2][0] and morpion[0][2] == "O":
+        arrete_partie()
+        return True
+    elif morpion[0][0] == morpion[1][0] == morpion[2][0] and morpion[0][0] == "O":
+        arrete_partie()
+        return True
+    elif morpion[0][1] == morpion[1][1] == morpion[2][1] and morpion[0][1] == "O":
+        arrete_partie()
+        return True
+    
+def gagnant():
+    if a_gagne_x() == True:
+        return "X"
+    elif a_gagne_o() == True:
+        return "O"
+    
+
 #asdasdasd
