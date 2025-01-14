@@ -1,9 +1,11 @@
 
 #initialisation du morpion
-morpion = [[" "," "," "],
-           [" "," "," "],
-           [" "," "," "]]
-compteur = 0
+def creation_jeu():
+    morpion = [[" "," "," "],
+               [" "," "," "],
+               [" "," "," "]]
+    compteur = 0
+    return morpion, compteur
 
 # initialisation/ premiere partie
 def premiere_partie():
@@ -16,42 +18,21 @@ def premiere_partie():
     compteur += 1
     return morpion
 
-def afficher_morpion():
-    for ligne in len(morpion):
+def afficher_morpion(morpion):
+    for ligne in morpion:
         print(morpion[ligne])
 
 #debut partie et toutes les parties jouées par x (fait)
-def tour_x():
-    ligne = int(input("ligne: "))
-    print(ligne)
-    colonne = int(input("colonne: "))
-    print(colonne)
-    
-    if morpion[ligne-1][colonne-1] == "X":
-        return "tu ne peux pas mettre un autre X sur cette case !"
-    elif morpion[ligne-1][colonne-1] == "O":
-        return "cette case est déjà prise par ton adversaire !"
-    else:
-        morpion[ligne-1][colonne-1] = "X"
-    compteur += 1
-    return morpion
+def tour_joueur(morpion):
+    ligne = int(input(f"{joueur}, entrez la ligne (1-3): ")) - 1
+    colonne = int(input(f"{joueur}, entrez la colonne (1-3): ")) - 1
 
-#deuxieme partie et toutes les parties jouées par o (fait)
-def tour_o():
-    ligne = int(input("ligne: "))
-    print(ligne)
-    colonne = int(input("colonne: "))
-    print(colonne)
+    if morpion[ligne][colonne] != " ":
+        print("Cette case est déjà prise. Choisissez une autre case.")
+        return morpion, False
 
-    if morpion[ligne-1][colonne-1] == "O":
-        return "tu ne peux pas mettre un autre O sur cette case !"
-    elif morpion[ligne-1][colonne-1] == "X":
-        return "cette case est déjà prise par ton adversaire !"
-    else:
-        morpion[ligne-1][colonne-1] = "O"
-    compteur += 1
-    return morpion
-
+    morpion[ligne][colonne] = joueur
+    return morpion, True
 
 
 #lancer une partie apres la premiere (fait)
@@ -119,4 +100,3 @@ def gagnant():
     elif a_gagne_o() == True:
         return "O"
     
-
