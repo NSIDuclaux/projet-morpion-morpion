@@ -16,8 +16,8 @@ def premiere_partie():
     return morpion
 
 def afficher_morpion():
-    for ligne in morpion:
-        print(ligne)
+    for ligne in len(morpion):
+        print(morpion[ligne])
 
 #debut partie et toutes les parties jouées par x
 def tour_x():
