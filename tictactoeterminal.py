@@ -39,7 +39,7 @@ def choix_joueur():
 
 
 
-#verification de tour (a faire)
+#verification de doublon (a faire)
 
 
 #a gagné (a faire)
