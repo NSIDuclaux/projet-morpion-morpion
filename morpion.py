@@ -24,3 +24,4 @@ class Partie:
         if self.partie.grille_pleine() == True:
             self.partie.destroy()
         ...
+AAAAAAAAAAAAAAAAAAA
