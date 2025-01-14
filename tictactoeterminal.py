@@ -15,9 +15,10 @@ def premiere_partie():
     compteur += 1
     return morpion
 
-def afficher_morpion:
+def afficher_morpion():
     for ligne in morpion:
-        print(ligne)
+        print(morpion[ligne])
+
 
 #debut partie et toutes les parties jouées par x
 def tour_x():
@@ -61,10 +62,6 @@ def lancer_tour():
         tour_o()
     else:
         return "Erreur de comptage"
-
-
-
-#verification de doublon (a faire)
 
 
 #a gagné (a faire)

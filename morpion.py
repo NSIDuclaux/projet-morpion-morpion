@@ -26,4 +26,12 @@ class Partie:
         if morpion.grille_pleine() == True:
             morpion.destroy()
             return "Égalité"
-        elif
+        elif a_gagne_o():
+            morpion.destroy()
+            return "Victoire du Joueur O !"
+        elif a_gagne_x():
+            morpion.destroy()
+            return "Victoire du Joueur X !"
+        else:
+            return False
+        
