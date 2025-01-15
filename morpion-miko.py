@@ -63,7 +63,10 @@ class Morpion:
                     print("Match nul!")
                     jeu_en_cours = False
                 else:
-                    self.joueur_actuel = "O" if self.joueur_actuel == "X" else "X"
+                    if self.joueur_actuel == "X":
+                        self.joueur_actuel = "O"
+                    else:
+                        self.joueur_actuel = "X"
 
 
 # lancer le jeu
