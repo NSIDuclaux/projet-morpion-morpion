@@ -1,4 +1,16 @@
 class Morpion:
+    """
+    Classe représentant un jeu de Morpion.
+
+    Attributs:
+    ----------
+    morpion : list
+        Une matrice 3x3 représentant le tableau du jeu.
+    compteur : int
+        Un compteur pour suivre le nombre de tours joués.
+    joueur_actuel : str
+        Le joueur actuel, soit "X" soit "O".
+    """
     def __init__(self):
         self.morpion = [[" ", " ", " "],
                         [" ", " ", " "],
