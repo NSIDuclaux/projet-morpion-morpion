@@ -6,6 +6,8 @@ class morpion_jeu(Tk):
 
     def __init__(self):
         super().__init__()
+
+        self.grid_rowconfigure(0, weight=0) # ajoute une barre en plus pour ajouter des elements supplementaires
         
         self.grid_rowconfigure(0, weight=1)
         self.grid_rowconfigure(1, weight=1)
