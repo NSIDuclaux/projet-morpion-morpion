@@ -18,37 +18,40 @@ class morpion_jeu(Tk):
 
         self.configure(background='gray24')
 
-        # barre du haut
-        top_bar = Label(self, text="Morpion", bg='gray24', fg='white', font=("Arial", 16))
-        top_bar.grid(column=0, row=0, columnspan=3, sticky="nsew", padx=3, pady=3)
+        self.boutons = [
+            [None, None, None],
+            [None, None, None],
+            [None, None, None]
+        ]
 
-        button1 = Button(self, text="B1")
-        button1.grid(column=0, row=1, sticky="nswe", padx=3, pady=3)
+        self.boutons[0][0] = Button(self, text="B1", command=lambda: self.sur_bouton_clique(0, 0))
+        self.boutons[0][0].grid(column=0, row=1, sticky="nswe", padx=3, pady=3)
 
-        button2 = Button(self, text="B2")
-        button2.grid(column=1, row=1, sticky="nswe", padx=3, pady=3)
+        self.boutons[0][1] = Button(self, text="B2", command=lambda: self.sur_bouton_clique(0, 1))
+        self.boutons[0][1].grid(column=1, row=1, sticky="nswe", padx=3, pady=3)
 
-        button3 = Button(self, text="B3")
-        button3.grid(column=2, row=1, sticky="nswe", padx=3, pady=3)
+        self.boutons[0][2] = Button(self, text="B3", command=lambda: self.sur_bouton_clique(0, 2))
+        self.boutons[0][2].grid(column=2, row=1, sticky="nswe", padx=3, pady=3)
 
-        button4 = Button(self, text="B4")
-        button4.grid(column=0, row=2, sticky="nswe", padx=3, pady=3)
+        self.boutons[1][0] = Button(self, text="B4", command=lambda: self.sur_bouton_clique(1, 0))
+        self.boutons[1][0].grid(column=0, row=2, sticky="nswe", padx=3, pady=3)
         
-        button5 = Button(self, text="B5")
-        button5.grid(column=1, row=2, sticky="nswe", padx=3, pady=3)
+        self.boutons[1][1] = Button(self, text="B5", command=lambda: self.sur_bouton_clique(1, 1))
+        self.boutons[1][1].grid(column=1, row=2, sticky="nswe", padx=3, pady=3)
         
-        button6 = Button(self, text="B6")
-        button6.grid(column=2, row=2, sticky="nswe", padx=3, pady=3)
+        self.boutons[1][2] = Button(self, text="B6", command=lambda: self.sur_bouton_clique(1, 2))
+        self.boutons[1][2].grid(column=2, row=2, sticky="nswe", padx=3, pady=3)
         
-        button7 = Button(self, text="B7")
-        button7.grid(column=0, row=3, sticky="nswe", padx=3, pady=3)
+        self.boutons[2][0] = Button(self, text="B7", command=lambda: self.sur_bouton_clique(2, 0))
+        self.boutons[2][0].grid(column=0, row=3, sticky="nswe", padx=3, pady=3)
         
-        button8 = Button(self, text="B8")
-        button8.grid(column=1, row=3, sticky="nswe", padx=3, pady=3)
+        self.boutons[2][1] = Button(self, text="B8", command=lambda: self.sur_bouton_clique(2, 1))
+        self.boutons[2][1].grid(column=1, row=3, sticky="nswe", padx=3, pady=3)
         
-        button9 = Button(self, text="B9")
-        button9.grid(column=2, row=3, sticky="nswe", padx=3, pady=3)
-
+        self.boutons[2][2] = Button(self, text="B9", command=lambda: self.sur_bouton_clique(2, 2))
+        self.boutons[2][2].grid(column=2, row=3, sticky="nswe", padx=3, pady=3)
+        
+        
         self.joueur_actuel = "X"
         self.morpion = [[" ", " ", " "],
                         [" ", " ", " "],
@@ -91,9 +94,9 @@ class morpion_jeu(Tk):
             return True
         return False
     
-    def gagnant(self, player):
+    def gagnant(self, joueur):
         print("gagnant")
-        winner_label = Label(self, text=f"Player {player} wins!", bg='gray24', fg='white', font=("Arial", 16))
+        winner_label = Label(self, text=f"joueur {joueur} a gagné!", bg='gray24', fg='white', font=("Arial", 16))
         winner_label.grid(column=0, row=4, columnspan=3, sticky="nsew", padx=3, pady=3)
         for row in self.buttons:
             for button in row:
