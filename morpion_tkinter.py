@@ -65,7 +65,7 @@ class morpion_jeu(Tk):
         self.title("Morpion")
 
         
-        img_path = 'path/tic-tac-toe-icon.png'
+        img_path = 'tic-tac-toe-icon.png'
         img = Image.open(img_path)
         img = ImageTk.PhotoImage(img)
 
