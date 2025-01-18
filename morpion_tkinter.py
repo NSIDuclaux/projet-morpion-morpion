@@ -1,5 +1,5 @@
 from tkinter import *
-
+from PIL import ImageTk, Image
 
 # On définit une classe qui dérive de la classe Tk (la classe de fenêtre).
 class morpion_jeu(Tk):
@@ -21,8 +21,9 @@ class morpion_jeu(Tk):
         self.boutons = [
             [None, None, None],
             [None, None, None],
-            [None, None, None]
+            [None, None, None],
         ]
+
 
         self.boutons[0][0] = Button(self, text="B1", command=lambda: self.sur_bouton_clique(0, 0))
         self.boutons[0][0].grid(column=0, row=1, sticky="nswe", padx=3, pady=3)
@@ -62,6 +63,13 @@ class morpion_jeu(Tk):
 
         # On ajoute un titre à la fenêtre
         self.title("Morpion")
+
+        
+        img_path = 'path/tic-tac-toe-icon.png'
+        img = Image.open(img_path)
+        img = ImageTk.PhotoImage(img)
+
+        self.iconphoto(False, img)
 
         # renvoie True si c'est bien a ce joueur-la de jouer, False sinon
     def verif_tour(self, row, col):
