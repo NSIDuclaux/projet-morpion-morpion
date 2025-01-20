@@ -69,11 +69,10 @@ class morpion_jeu(Tk):
         self.title("Morpion")
 
         
-        #img_path = 'tic-tac-toe-icon.png'
-        #img = Image.open(img_path)
-        #img = ImageTk.PhotoImage(img)
+        img = Image.open("https://github.com/NSIDuclaux/projet-morpion-morpion/blob/main/tic-tac-toe-icon.png")
+        img = ImageTk.PhotoImage(img)
 
-        #self.iconphoto(False, img)
+        self.iconphoto(False, img)
 
 
     def arret_partie(self):
