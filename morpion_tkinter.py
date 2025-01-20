@@ -18,40 +18,44 @@ class morpion_jeu(Tk):
 
         self.configure(background='gray24')
 
-        self.boutons = [
-            [None, None, None],
-            [None, None, None],
-            [None, None, None],
-        ]
+        self.liste_boutons = list()
 
+        bouton1 = Button(self, text=" ", command=lambda: self.sur_bouton_clique(0, 0))
+        bouton1.grid(column=0, row=1, sticky="nswe", padx=3, pady=3)
+        self.liste_boutons.append(bouton1)
 
-        self.boutons[0][0] = Button(self, text="B1", command=lambda: self.sur_bouton_clique(0, 0))
-        self.boutons[0][0].grid(column=0, row=1, sticky="nswe", padx=3, pady=3)
+        bouton2 = Button(self, text=" ", command=lambda: self.sur_bouton_clique(0, 1))
+        bouton2.grid(column=1, row=1, sticky="nswe", padx=3, pady=3)
+        self.liste_boutons.append(bouton2)
 
-        self.boutons[0][1] = Button(self, text="B2", command=lambda: self.sur_bouton_clique(0, 1))
-        self.boutons[0][1].grid(column=1, row=1, sticky="nswe", padx=3, pady=3)
+        bouton3 = Button(self, text=" ", command=lambda: self.sur_bouton_clique(0, 2))
+        bouton3.grid(column=2, row=1, sticky="nswe", padx=3, pady=3)
+        self.liste_boutons.append(bouton3)
 
-        self.boutons[0][2] = Button(self, text="B3", command=lambda: self.sur_bouton_clique(0, 2))
-        self.boutons[0][2].grid(column=2, row=1, sticky="nswe", padx=3, pady=3)
+        bouton4 = Button(self, text=" ", command=lambda: self.sur_bouton_clique(1, 0))
+        bouton4.grid(column=0, row=2, sticky="nswe", padx=3, pady=3)
+        self.liste_boutons.append(bouton4)
 
-        self.boutons[1][0] = Button(self, text="B4", command=lambda: self.sur_bouton_clique(1, 0))
-        self.boutons[1][0].grid(column=0, row=2, sticky="nswe", padx=3, pady=3)
-        
-        self.boutons[1][1] = Button(self, text="B5", command=lambda: self.sur_bouton_clique(1, 1))
-        self.boutons[1][1].grid(column=1, row=2, sticky="nswe", padx=3, pady=3)
-        
-        self.boutons[1][2] = Button(self, text="B6", command=lambda: self.sur_bouton_clique(1, 2))
-        self.boutons[1][2].grid(column=2, row=2, sticky="nswe", padx=3, pady=3)
-        
-        self.boutons[2][0] = Button(self, text="B7", command=lambda: self.sur_bouton_clique(2, 0))
-        self.boutons[2][0].grid(column=0, row=3, sticky="nswe", padx=3, pady=3)
-        
-        self.boutons[2][1] = Button(self, text="B8", command=lambda: self.sur_bouton_clique(2, 1))
-        self.boutons[2][1].grid(column=1, row=3, sticky="nswe", padx=3, pady=3)
-        
-        self.boutons[2][2] = Button(self, text="B9", command=lambda: self.sur_bouton_clique(2, 2))
-        self.boutons[2][2].grid(column=2, row=3, sticky="nswe", padx=3, pady=3)
-        
+        bouton5 = Button(self, text=" ", command=lambda: self.sur_bouton_clique(1, 1))
+        bouton5.grid(column=1, row=2, sticky="nswe", padx=3, pady=3)
+        self.liste_boutons.append(bouton5)
+
+        bouton6 = Button(self, text=" ", command=lambda: self.sur_bouton_clique(1, 2))
+        bouton6.grid(column=2, row=2, sticky="nswe", padx=3, pady=3)
+        self.liste_boutons.append(bouton6)
+
+        bouton7 = Button(self, text=" ", command=lambda: self.sur_bouton_clique(2, 0))
+        bouton7.grid(column=0, row=3, sticky="nswe", padx=3, pady=3)
+        self.liste_boutons.append(bouton7)
+
+        bouton8 = Button(self, text=" ", command=lambda: self.sur_bouton_clique(2, 1))
+        bouton8.grid(column=1, row=3, sticky="nswe", padx=3, pady=3)
+        self.liste_boutons.append(bouton8)
+
+        bouton9 = Button(self, text="  ", command=lambda: self.sur_bouton_clique(2, 2))
+        bouton9.grid(column=2, row=3, sticky="nswe", padx=3, pady=3)
+        self.liste_boutons.append(bouton9)
+
         
         self.joueur_actuel = "X"
         self.morpion = [[" ", " ", " "],
@@ -65,11 +69,17 @@ class morpion_jeu(Tk):
         self.title("Morpion")
 
         
-        img_path = 'tic-tac-toe-icon.png'
-        img = Image.open(img_path)
-        img = ImageTk.PhotoImage(img)
+        #img_path = 'tic-tac-toe-icon.png'
+        #img = Image.open(img_path)
+        #img = ImageTk.PhotoImage(img)
 
-        self.iconphoto(False, img)
+        #self.iconphoto(False, img)
+
+
+    def arret_partie(self):
+        for bouton in self.liste_boutons:
+            bouton.config(state=DISABLED)
+
 
         # renvoie True si c'est bien a ce joueur-la de jouer, False sinon
     def verif_tour(self, row, col):
@@ -81,24 +91,27 @@ class morpion_jeu(Tk):
     def sur_bouton_clique(self, row, col):
         print("sur button clique")
         if self.verif_tour(row, col):
-            self.buttons[row][col].config(text=self.joueur_actuel)
+            self.liste_boutons[row * 3 + col].config(text=self.joueur_actuel, state=DISABLED)
             if self.a_gagne():
                 self.gagnant(self.joueur_actuel)
             else:
-                self.joueur_actuel = "O" if self.joueur_actuel == "X" else "X"
+                if self.joueur_actuel == "X":
+                    self.joueur_actuel = "O"
+                else:
+                    self.joueur_actuel = "X"
 
     def a_gagne(self):
         print("a gagne")
     # on regarde pour les lignes droites avec une boucle for
         for i in range(3): 
-            if self.morpion[i][0] == self.morpion[i][1] == self.morpion[i][2] != "":
+            if self.morpion[i][0] == self.morpion[i][1] == self.morpion[i][2] != " ":
                 return True
-            if self.morpion[0][i] == self.morpion[1][i] == self.morpion[2][i] != "":
+            if self.morpion[0][i] == self.morpion[1][i] == self.morpion[2][i] != " ":
                 return True
     # on regarde pour les lignes diagonales
-        if self.morpion[0][0] == self.morpion[1][1] == self.morpion[2][2] != "":
+        if self.morpion[0][0] == self.morpion[1][1] == self.morpion[2][2] != " ":
             return True
-        if self.morpion[0][2] == self.morpion[1][1] == self.morpion[2][0] != "":
+        if self.morpion[0][2] == self.morpion[1][1] == self.morpion[2][0] != " ":
             return True
         return False
     
@@ -106,9 +119,7 @@ class morpion_jeu(Tk):
         print("gagnant")
         winner_label = Label(self, text=f"joueur {joueur} a gagné!", bg='gray24', fg='white', font=("Arial", 16))
         winner_label.grid(column=0, row=4, columnspan=3, sticky="nsew", padx=3, pady=3)
-        for row in self.buttons:
-            for button in row:
-                button.config(state=DISABLED)
+        self.arret_partie()
 
 
 # On crée notre fenêtre et on l'affiche
