@@ -66,6 +66,8 @@ class morpion_jeu(Tk):
 
         # On ajoute un titre à la fenêtre
         self.title("Morpion")
+        
+        self.compteur = 0
 
         
     def arret_partie(self):
@@ -90,9 +92,12 @@ class morpion_jeu(Tk):
                 self.gagnant(self.joueur_actuel)
             else:
                 if self.joueur_actuel == "X":
+                    self.compteur += 1
                     self.joueur_actuel = "O"
                 else:
+                    self.compteur += 1
                     self.joueur_actuel = "X"
+                    
 
     def a_gagne(self):
         print("a gagné?")
@@ -105,6 +110,7 @@ class morpion_jeu(Tk):
             if self.morpion[0][i] == self.morpion[1][i] == self.morpion[2][i] != " ":
                 self.colorier_boutons([(0, i), (1, i), (2, i)])
                 return True
+            
                 
     # on regarde pour les lignes diagonales
         if self.morpion[0][0] == self.morpion[1][1] == self.morpion[2][2] != " ":
@@ -114,6 +120,12 @@ class morpion_jeu(Tk):
         if self.morpion[0][2] == self.morpion[1][1] == self.morpion[2][0] != " ":
             self.colorier_boutons([(0, 2), (1, 1), (2, 0)])
             return True
+        
+        self.jeu_nul()
+            
+        
+        
+        
         print(f"non, le joueur {self.joueur_actuel} n'a pas gagné")
         print("------------------------------------------------------\n")
         return False
@@ -128,11 +140,21 @@ class morpion_jeu(Tk):
         winner_label = Label(self, text=f"joueur {joueur} a gagné!", bg='gray24', fg='white', font=("Arial", 16))
         winner_label.grid(column=0, row=4, columnspan=3, sticky="nsew", padx=3, pady=3)
         self.arret_partie()
+        
+    def jeu_nul(self):
+        if not (self.morpion[0][2] == self.morpion[1][1] == self.morpion[2][0] != " ") and not (self.morpion[0][0] == self.morpion[1][1] == self.morpion[2][2] != " ") and not (self.morpion[0][i] == self.morpion[1][i] == self.morpion[2][i] != " ") and not (self.morpion[i][0] == self.morpion[i][1] == self.morpion[i][2] != " ") and self.compteur >= 9:
+            print(f"la partie est nulle, aucun gagnant !")
+            print("------------------------------------------------------\n")
+            winner_label = Label(self, text=f"personne a gagné!", bg='gray24', fg='white', font=("Arial", 16))
+            winner_label.grid(column=0, row=4, columnspan=3, sticky="nsew", padx=3, pady=3)
+            self.arret_partie()
 
 
 
 # On crée notre fenêtre et on l'affiche
 window = morpion_jeu()
 #window.iconphoto(False, PhotoImage(file="tic-tac-toe-icon.ico"))
+#window.iconbitmap("tic-tac-toe-icon.ico")
+
 window.mainloop()
 
