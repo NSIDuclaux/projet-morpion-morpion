@@ -202,3 +202,9 @@ window = morpion_jeu()
 
 window.mainloop()
 
+### a faire :
+###
+### 1: ajouter des commentaires et une docstring pour la class
+###
+###
+
