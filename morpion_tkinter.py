@@ -194,6 +194,9 @@ class morpion_jeu(Tk):
 
 # On crée notre fenêtre et on l'affiche
 window = morpion_jeu()
+
+#changement de l'icone de la fenetre
+
 #window.iconphoto(False, PhotoImage(file="tic-tac-toe-icon.ico"))
 #window.iconbitmap("tic-tac-toe-icon.ico")
 
