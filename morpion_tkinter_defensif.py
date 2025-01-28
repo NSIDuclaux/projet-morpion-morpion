@@ -69,6 +69,7 @@ class Morpion_1vPCdef(Tk):
 
         
         self.joueur_actuel = "X"
+        
         self.morpion = [[" ", " ", " "],
                         [" ", " ", " "],
                         [" ", " ", " "]]
@@ -115,6 +116,16 @@ class Morpion_1vPCdef(Tk):
             return True
         return False
 
+    def ia_joue(self):
+        
+        print("L'IA réfléchit...\n")
+        cases_vides = [(i, j) for i in range(3) for j in range(3) if self.morpion[i][j] == " "]
+        self.joueur_actuel = "X"
+        
+        for i in cases_vides:
+            self.a_gagne()
+        
+
         
     def sur_bouton_clique(self, row, col):
         print(f"{self.joueur_actuel} a cliqué sur la case {row}, {col}\n")  # Pour le débogage
@@ -129,9 +140,10 @@ class Morpion_1vPCdef(Tk):
                 pass
             else:
                 self.joueur_actuel = "O"  # Changement de tour vers l'ordinateur
-                self.ordinateur_joue()  # L'ordinateur joue automatiquement
+                self.ordinateur_joue()  # L'ordinateur joue automatiquement ################# a enlever
                 
-    def ordinateur_joue(self):
+    def ordinateur_joue(self): ################## a enlever
+        pass 
         print("L'ordinateur réfléchit...\n")
         cases_vides = [(i, j) for i in range(3) for j in range(3) if self.morpion[i][j] == " "] # renvoie une liste de couples de coordonees de toutes les cases vides
 
@@ -455,6 +467,7 @@ class Mode_de_jeu_morpion(Tk):
         self.grid_rowconfigure(0, weight=0)
         self.grid_columnconfigure(0, weight=1)
         self.grid_columnconfigure(1, weight=1)
+        self.grid_columnconfigure(2, weight=1)
         
         self.morpion = [[" ", " ", " "],
                         [" ", " ", " "],
@@ -463,8 +476,12 @@ class Mode_de_jeu_morpion(Tk):
         bouton1v1 = Button(self, text="1 v 1", font=("Helvetica",20), height=6, width=12, command=lambda: self.creer_morpion1v1())
         bouton1v1.grid(column=0, row=1, sticky="w", padx=3, pady=3)
 
-        bouton1vpc = Button(self, text="1 v Ordinateur", font=("Helvetica",20), height=6, width=12, command=lambda: self.creer_morpion1vPC())
+        bouton1vpc = Button(self, text="1 v Aleatoire", font=("Helvetica",20), height=6, width=12, command=lambda: self.creer_morpion1vPC())
         bouton1vpc.grid(column=1, row=1, sticky="e", padx=3, pady=3)
+        
+        bouton1vpcdef = Button(self, text="1 v IA", font=("Helvetica",20), height=6, width=12, command=lambda: self.creer_morpion1vPC())
+        bouton1vpcdef.grid(column=2, row=1, sticky="e", padx=3, pady=3)
+        
         
     def creer_morpion1v1(self):
         self.destroy()

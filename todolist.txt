@@ -11,3 +11,6 @@ pour faire l'ordinateur semi-intelligent:
                 
                 sinon:
                     -placer O aleatoirement
+
+liste a faire:
+-faire une fonction ia_joue() que l'on va mettre dans la fonction sur_bouton_clique
