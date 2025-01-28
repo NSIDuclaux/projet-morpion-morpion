@@ -1,6 +1,8 @@
 pour faire l'ordinateur semi-intelligent:
 
-    approche defensive:
+    approche aleatoire (FACILE): (FAIT)
+    
+    approche defensive (MOYEN): (EN TRAIN DE FAIRE)
 
         -quand joueur x joue:
             -l'ordinateur essaye de placer un x (dans sa tete)
@@ -12,5 +14,19 @@ pour faire l'ordinateur semi-intelligent:
                 sinon:
                     -placer O aleatoirement
 
+    approche defensive et parfois offensive (DIFFICILE): (PAS FAIT)
+
+        -quand joueur x joue:
+            -l'ordinateur essaye de placer un x (dans sa tete)
+             dans toutes les cases VIDES:
+            
+                -si a_gagne X avec la case vide en train detre regardée:
+                    placer O dans cette même case
+                
+                -elif a_gagne O avec la case vide en train detre regardee:
+                    -placer O dans cette meme case
+
 liste a faire:
 -faire une fonction ia_joue() que l'on va mettre dans la fonction sur_bouton_clique
+
+-implementer le niveau facile moyen et difficile apres avoir clique sur le bouton 1 v IA

@@ -235,7 +235,7 @@ class Morpion_1vPCdef(Tk):
 
 
 # On définit une classe qui dérive de la classe Tk (la classe de fenêtre).
-class Morpion_1vPC(Tk):
+class Morpion_1vPCalea(Tk):
     def __init__(self):
         super().__init__()
 
@@ -495,7 +495,7 @@ class Mode_de_jeu_morpion(Tk):
         
     def creer_morpion1vPC(self):
         self.destroy()
-        fenetre = Morpion_1vPC()
+        fenetre = Morpion_1vPCalea()
         fenetre.mainloop()
     
         
