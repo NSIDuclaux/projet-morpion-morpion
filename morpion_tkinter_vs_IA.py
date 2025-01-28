@@ -1,6 +1,9 @@
 from tkinter import *
 from random import randint
 
+class Morpion_1vPCdef_et_off(Tk):
+    pass
+
 class Morpion_1vPCdef(Tk):
     def __init__(self):
         super().__init__()
@@ -117,7 +120,7 @@ class Morpion_1vPCdef(Tk):
         return False
 
     def ia_joue(self):
-        
+        pass
         print("L'IA réfléchit...\n")
         cases_vides = [(i, j) for i in range(3) for j in range(3) if self.morpion[i][j] == " "]
         self.joueur_actuel = "X"
@@ -455,11 +458,40 @@ class Morpion_1vPCalea(Tk):
             if isinstance(widget, Label):
                 widget.destroy()
     
+class Mode_de_IA(Tk):
+    
+    def __init__(self):
+        super().__init__()
+        
+        self.grid_rowconfigure(0, weight=0)
+        self.grid_columnconfigure(0, weight=1)
+        self.grid_columnconfigure(1, weight=1)
+        self.grid_columnconfigure(2, weight=1)
+        
+        bouton1v1 = Button(self, text="Facile", font=("Helvetica",20), height=6, width=12, command=lambda: self.creer_morpion_IA_Facile())
+        bouton1v1.grid(column=0, row=1, sticky="", padx=3, pady=3)
+        
+        bouton1v1 = Button(self, text="Moyen", font=("Helvetica",20), height=6, width=12, command=lambda: self.creer_morpion_IA_Moyen())
+        bouton1v1.grid(column=1, row=1, sticky="nswe", padx=3, pady=3)
+        
+        bouton1v1 = Button(self, text="Difficile", font=("Helvetica",20), height=6, width=12, command=lambda: self.creer_morpion_IA_Difficile())
+        bouton1v1.grid(column=2, row=1, sticky="nswe", padx=3, pady=3)
+        
+    def creer_morpion_IA_Facile(self):
+        self.destroy()
+        fenetre = Morpion_1vPCalea()
+        fenetre.mainloop()
+        
+    def creer_morpion_IA_Moyen(self):
+        self.destroy()
+        fenetre = Morpion_1vPCdef()
+        fenetre.mainloop()
 
+    def creer_morpion_IA_Difficile(self):
+        self.destroy()
+        fenetre = Morpion_1vPCdef_et_off()
+        fenetre.mainloop()
     
-    
-    
-
 class Mode_de_jeu_morpion(Tk):
     
     def __init__(self):
@@ -467,39 +499,25 @@ class Mode_de_jeu_morpion(Tk):
         self.grid_rowconfigure(0, weight=0)
         self.grid_columnconfigure(0, weight=1)
         self.grid_columnconfigure(1, weight=1)
-        self.grid_columnconfigure(2, weight=1)
-        
-        self.morpion = [[" ", " ", " "],
-                        [" ", " ", " "],
-                        [" ", " ", " "]]
         
         bouton1v1 = Button(self, text="1 v 1", font=("Helvetica",20), height=6, width=12, command=lambda: self.creer_morpion1v1())
         bouton1v1.grid(column=0, row=1, sticky="w", padx=3, pady=3)
 
-        bouton1vpc = Button(self, text="1 v Aleatoire", font=("Helvetica",20), height=6, width=12, command=lambda: self.creer_morpion1vPC())
+        bouton1vpc = Button(self, text="1 v IA", font=("Helvetica",20), height=6, width=12, command=lambda: self.mode_morpion1vPC())
         bouton1vpc.grid(column=1, row=1, sticky="e", padx=3, pady=3)
         
-        bouton1vpcdef = Button(self, text="1 v IA", font=("Helvetica",20), height=6, width=12, command=lambda: self.creer_morpion1vPC())
-        bouton1vpcdef.grid(column=2, row=1, sticky="e", padx=3, pady=3)
-        
-        
-    def creer_morpion1v1(self):
-        self.destroy()
-        fenetre = Morpion_1v1()
-        fenetre.mainloop()
     
     def creer_morpion1v1(self):
         self.destroy()
         fenetre = Morpion_1v1()
         fenetre.mainloop()
         
-    def creer_morpion1vPC(self):
+    def mode_morpion1vPC(self):
         self.destroy()
-        fenetre = Morpion_1vPCalea()
+        fenetre = Mode_de_IA()
         fenetre.mainloop()
     
-        
-        
+    
 class Morpion_1v1(Tk):
 
     def __init__(self):
