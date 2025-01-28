@@ -119,16 +119,39 @@ class Morpion_1vPCdef(Tk):
             return True
         return False
 
-    def ia_joue(self):
-        pass
+    def x_cases_verif(self):
         print("L'IA réfléchit...\n")
         cases_vides = [(i, j) for i in range(3) for j in range(3) if self.morpion[i][j] == " "]
         self.joueur_actuel = "X"
+        cases_gagnantes_pour_x = []
         
         for i in cases_vides:
-            self.a_gagne()
+            self.joueur_actuel = "X"
+            if self.a_gagne():
+                cases_gagnantes_pour_x.append(i)
+            else:
+                pass
         
+        return cases_gagnantes_pour_x
 
+    def ordinateur_defensif(self):
+        print("L'IA réfléchit...\n")
+        cases_gagnantes_pour_x = self.x_cases_verif()
+        if cases_gagnantes_pour_x:
+            row, col = cases_gagnantes_pour_x[0]
+            print(f"L'ordinateur choisit la case {row}, {col}\n")
+            self.morpion[row][col] = "O"
+            self.liste_boutons[row * 3 + col].config(text="O", state=DISABLED)
+            self.compteur += 1
+            if self.a_gagne():
+                self.gagnant("O")
+            elif self.jeu_nul():
+                pass
+            else:
+                self.joueur_actuel = "X"  # Retour au joueur humain
+                
+        else:
+            self.ordinateur_alea()
         
     def sur_bouton_clique(self, row, col):
         print(f"{self.joueur_actuel} a cliqué sur la case {row}, {col}\n")  # Pour le débogage
@@ -143,9 +166,9 @@ class Morpion_1vPCdef(Tk):
                 pass
             else:
                 self.joueur_actuel = "O"  # Changement de tour vers l'ordinateur
-                self.ordinateur_joue()  # L'ordinateur joue automatiquement ################# a enlever
+                self.ordinateur_defensif()  # L'ordinateur joue automatiquement ################# a enlever
                 
-    def ordinateur_joue(self): ################## a enlever
+    def ordinateur_alea(self): ################## a enlever
         pass 
         print("L'ordinateur réfléchit...\n")
         cases_vides = [(i, j) for i in range(3) for j in range(3) if self.morpion[i][j] == " "] # renvoie une liste de couples de coordonees de toutes les cases vides
