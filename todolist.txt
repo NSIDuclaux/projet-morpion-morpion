@@ -1,0 +1,13 @@
+pour faire l'ordinateur semi-intelligent:
+
+    approche defensive:
+
+        -quand joueur x joue:
+            -l'ordinateur essaye de placer un x (dans sa tete)
+             dans toutes les cases VIDES:
+            
+                -si a_gagne x avec la case vide en train detre regardée:
+                    placer O dans cette même case
+                
+                sinon:
+                    -placer O aleatoirement
