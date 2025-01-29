@@ -118,28 +118,30 @@ class Morpion_1vPCdef(Tk):
             self.morpion[row][col] = self.joueur_actuel
             return True
         return False
+    
 
+
+    # regarde les cases gagnantes pour le joueur X
     def x_cases_verif(self):
-        print("L'IA réfléchit...\n")
         cases_vides = [(i, j) for i in range(3) for j in range(3) if self.morpion[i][j] == " "]
-        self.joueur_actuel = "X"
         cases_gagnantes_pour_x = []
-        
-        for i in cases_vides:
-            self.joueur_actuel = "X"
-            if self.a_gagne():
-                cases_gagnantes_pour_x.append(i)
-            else:
-                pass
-        
+
+        for row, col in cases_vides:
+            # Créer une copie du morpion pour la simulation
+            morpion_copie = [ligne.copy() for ligne in self.morpion]
+            morpion_copie[row][col] = "X" # place un x sur la case précisée
+            if self.a_gagne_sur_copie(morpion_copie): #regarde si cette case résulte à une victoire pour le joueur X
+                cases_gagnantes_pour_x.append((row, col))
         return cases_gagnantes_pour_x
+
 
     def ordinateur_defensif(self):
         print("L'IA réfléchit...\n")
         cases_gagnantes_pour_x = self.x_cases_verif()
         if cases_gagnantes_pour_x:
+            # Bloque une victoire potentielle du joueur X si elle existe
             row, col = cases_gagnantes_pour_x[0]
-            print(f"L'ordinateur choisit la case {row}, {col}\n")
+            print(f"L'ordinateur bloque la case {row}, {col}\n")
             self.morpion[row][col] = "O"
             self.liste_boutons[row * 3 + col].config(text="O", state=DISABLED)
             self.compteur += 1
@@ -149,7 +151,6 @@ class Morpion_1vPCdef(Tk):
                 pass
             else:
                 self.joueur_actuel = "X"  # Retour au joueur humain
-                
         else:
             self.ordinateur_alea()
         
@@ -168,8 +169,7 @@ class Morpion_1vPCdef(Tk):
                 self.joueur_actuel = "O"  # Changement de tour vers l'ordinateur
                 self.ordinateur_defensif()  # L'ordinateur joue automatiquement ################# a enlever
                 
-    def ordinateur_alea(self): ################## a enlever
-        pass 
+    def ordinateur_alea(self):
         print("L'ordinateur réfléchit...\n")
         cases_vides = [(i, j) for i in range(3) for j in range(3) if self.morpion[i][j] == " "] # renvoie une liste de couples de coordonees de toutes les cases vides
 
@@ -187,38 +187,47 @@ class Morpion_1vPCdef(Tk):
             else:
                 self.joueur_actuel = "X"  # Retour au joueur humain
 
-                    
-                    
+    def a_gagne_sur_copie(self, morpion_copie):
+        # Vérifie les victoires sur la copie sans modifier l'interface
+        for i in range(3):
+            if morpion_copie[i][0] == morpion_copie[i][1] == morpion_copie[i][2] != " ":
+                return True
+            if morpion_copie[0][i] == morpion_copie[1][i] == morpion_copie[2][i] != " ":
+                return True
+        if morpion_copie[0][0] == morpion_copie[1][1] == morpion_copie[2][2] != " ":
+            return True
+        if morpion_copie[0][2] == morpion_copie[1][1] == morpion_copie[2][0] != " ":
+            return True
+        return False
 
     def a_gagne(self):
         print("a gagné?")
     # on regarde pour les lignes droites avec une boucle for
         for i in range(3): 
             if self.morpion[i][0] == self.morpion[i][1] == self.morpion[i][2] != " ":
-                self.colorier_boutons([(i, 0), (i, 1), (i, 2)])
+                self.colorier_vert([(i, 0), (i, 1), (i, 2)])
                 return True
                 
             if self.morpion[0][i] == self.morpion[1][i] == self.morpion[2][i] != " ":
-                self.colorier_boutons([(0, i), (1, i), (2, i)])
+                self.colorier_vert([(0, i), (1, i), (2, i)])
                 return True
             
                 
     # on regarde pour les lignes diagonales
         if self.morpion[0][0] == self.morpion[1][1] == self.morpion[2][2] != " ":
-            self.colorier_boutons([(0, 0), (1, 1), (2, 2)])
+            self.colorier_vert([(0, 0), (1, 1), (2, 2)])
             return True
             
         if self.morpion[0][2] == self.morpion[1][1] == self.morpion[2][0] != " ":
-            self.colorier_boutons([(0, 2), (1, 1), (2, 0)])
+            self.colorier_vert([(0, 2), (1, 1), (2, 0)])
             return True
         
-        self.jeu_nul()
 
         print(f"non, le joueur {self.joueur_actuel} n'a pas gagné")
         print("------------------------------------------------------\n")
         return False
 
-    def colorier_boutons(self, positions):
+    def colorier_vert(self, positions):
         for row, col in positions:
             self.liste_boutons[row * 3 + col].config(bg="green")
     
@@ -417,21 +426,21 @@ class Morpion_1vPCalea(Tk):
     # on regarde pour les lignes droites avec une boucle for
         for i in range(3): 
             if self.morpion[i][0] == self.morpion[i][1] == self.morpion[i][2] != " ":
-                self.colorier_boutons([(i, 0), (i, 1), (i, 2)])
+                self.colorier_vert([(i, 0), (i, 1), (i, 2)])
                 return True
                 
             if self.morpion[0][i] == self.morpion[1][i] == self.morpion[2][i] != " ":
-                self.colorier_boutons([(0, i), (1, i), (2, i)])
+                self.colorier_vert([(0, i), (1, i), (2, i)])
                 return True
             
                 
     # on regarde pour les lignes diagonales
         if self.morpion[0][0] == self.morpion[1][1] == self.morpion[2][2] != " ":
-            self.colorier_boutons([(0, 0), (1, 1), (2, 2)])
+            self.colorier_vert([(0, 0), (1, 1), (2, 2)])
             return True
             
         if self.morpion[0][2] == self.morpion[1][1] == self.morpion[2][0] != " ":
-            self.colorier_boutons([(0, 2), (1, 1), (2, 0)])
+            self.colorier_vert([(0, 2), (1, 1), (2, 0)])
             return True
         
         self.jeu_nul()
@@ -440,7 +449,7 @@ class Morpion_1vPCalea(Tk):
         print("------------------------------------------------------\n")
         return False
 
-    def colorier_boutons(self, positions):
+    def colorier_vert(self, positions):
         for row, col in positions:
             self.liste_boutons[row * 3 + col].config(bg="green")
     
@@ -673,21 +682,21 @@ class Morpion_1v1(Tk):
     # on regarde pour les lignes droites avec une boucle for
         for i in range(3): 
             if self.morpion[i][0] == self.morpion[i][1] == self.morpion[i][2] != " ":
-                self.colorier_boutons([(i, 0), (i, 1), (i, 2)])
+                self.colorier_vert([(i, 0), (i, 1), (i, 2)])
                 return True
                 
             if self.morpion[0][i] == self.morpion[1][i] == self.morpion[2][i] != " ":
-                self.colorier_boutons([(0, i), (1, i), (2, i)])
+                self.colorier_vert([(0, i), (1, i), (2, i)])
                 return True
             
                 
     # on regarde pour les lignes diagonales
         if self.morpion[0][0] == self.morpion[1][1] == self.morpion[2][2] != " ":
-            self.colorier_boutons([(0, 0), (1, 1), (2, 2)])
+            self.colorier_vert([(0, 0), (1, 1), (2, 2)])
             return True
             
         if self.morpion[0][2] == self.morpion[1][1] == self.morpion[2][0] != " ":
-            self.colorier_boutons([(0, 2), (1, 1), (2, 0)])
+            self.colorier_vert([(0, 2), (1, 1), (2, 0)])
             return True
         
         self.jeu_nul()
@@ -696,7 +705,7 @@ class Morpion_1v1(Tk):
         print("------------------------------------------------------\n")
         return False
 
-    def colorier_boutons(self, positions):
+    def colorier_vert(self, positions):
         for row, col in positions:
             self.liste_boutons[row * 3 + col].config(bg="green")
     
