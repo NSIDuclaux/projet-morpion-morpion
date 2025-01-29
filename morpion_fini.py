@@ -1,13 +1,12 @@
 from tkinter import *
 from random import randint
-import os
+
 class Morpion_1vPCdef_et_off(Tk):
     def __init__(self):
         super().__init__()
 
-        script_dir = os.path.dirname(os.path.abspath(__file__))
-        icon_path = os.path.join(script_dir, "assets", "icon.ico")
-        self.iconbitmap(icon_path)
+        self.icon = PhotoImage(file="icon.png")
+        self.iconphoto(False, self.icon)
 
         self.grid_rowconfigure(0, weight=0)  # ajoute une barre en plus pour ajouter des elements supplementaires
         self.grid_rowconfigure(1, weight=1)
@@ -299,8 +298,12 @@ class Morpion_1vPCdef_et_off(Tk):
                 widget.destroy()
 
 class Morpion_1vPCdef(Tk):
+
     def __init__(self):
         super().__init__()
+
+        self.icon = PhotoImage(file="icon.png")
+        self.iconphoto(False, self.icon)
 
         self.grid_rowconfigure(0, weight=0)  # ajoute une barre en plus pour ajouter des elements supplementaires
         self.grid_rowconfigure(1, weight=1)
@@ -561,12 +564,13 @@ class Morpion_1vPCdef(Tk):
         for widget in self.grid_slaves():
             if isinstance(widget, Label):
                 widget.destroy()
-
-
 # On définit une classe qui dérive de la classe Tk (la classe de fenêtre).
 class Morpion_1vPCalea(Tk):
     def __init__(self):
         super().__init__()
+
+        self.icon = PhotoImage(file="icon.png")
+        self.iconphoto(False, self.icon)
 
         self.grid_rowconfigure(0, weight=0)  # ajoute une barre en plus pour ajouter des elements supplementaires
         self.grid_rowconfigure(1, weight=1)
@@ -788,6 +792,9 @@ class Mode_de_IA(Tk):
     
     def __init__(self):
         super().__init__()
+
+        self.icon = PhotoImage(file="icon.png")
+        self.iconphoto(False, self.icon)
         
         self.grid_rowconfigure(0, weight=0)
         self.grid_columnconfigure(0, weight=1)
@@ -822,6 +829,10 @@ class Mode_de_jeu_morpion(Tk):
     
     def __init__(self):
         super().__init__()
+
+        self.icon = PhotoImage(file="icon.png")
+        self.iconphoto(False, self.icon)
+
         self.grid_rowconfigure(0, weight=0)
         self.grid_columnconfigure(0, weight=1)
         self.grid_columnconfigure(1, weight=1)
@@ -843,11 +854,13 @@ class Mode_de_jeu_morpion(Tk):
         fenetre = Mode_de_IA()
         fenetre.mainloop()
     
-    
 class Morpion_1v1(Tk):
 
     def __init__(self):
         super().__init__()
+
+        self.icon = PhotoImage(file="icon.png")
+        self.iconphoto(False, self.icon)
 
         self.grid_rowconfigure(0, weight=0)  # ajoute une barre en plus pour ajouter des elements supplementaires
         self.grid_rowconfigure(1, weight=1)
@@ -1040,14 +1053,13 @@ class Morpion_1v1(Tk):
             if isinstance(widget, Label):
                 widget.destroy()
 
-
 # On crée notre fenêtre et on l'affiche
 window = Mode_de_jeu_morpion()
 
 #changement de l'icone de la fenetre
 
-#window.iconphoto(False, PhotoImage(file="tic-tac-toe-icon.ico"))
-#window.iconbitmap("tic-tac-toe-icon.ico")
+#window.iconphoto(False, PhotoImage(file="icon.png"))
+#window.iconbitmap("icon.png")
 
 window.mainloop()
 
