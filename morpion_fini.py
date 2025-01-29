@@ -2,6 +2,12 @@ from tkinter import *
 from random import randint
 
 class Morpion_1vPCdef_et_off(Tk):
+    """
+    Classe représentant le jeu de Morpion contre un ordinateur défensif et offensif.
+    defensif: bloque le joueur quand il a une opportunité de gagner
+    offensif: défait le joueur quand il a une opportunité de gagner
+    si l'ordinateur ne voit pas que le joueur ou lui-même peut gagner alors il joue aléatoirement
+    """
     def __init__(self):
         super().__init__()
 
@@ -298,7 +304,11 @@ class Morpion_1vPCdef_et_off(Tk):
                 widget.destroy()
 
 class Morpion_1vPCdef(Tk):
-
+    """
+    Classe représentant le jeu de Morpion contre un ordinateur défensif.
+    defensif: bloque le joueur quand il a une opportunité de gagner
+    si l'ordinateur ne voit pas que le joueur peut gagner alors il joue aléatoirement
+    """
     def __init__(self):
         super().__init__()
 
@@ -566,6 +576,9 @@ class Morpion_1vPCdef(Tk):
                 widget.destroy()
 # On définit une classe qui dérive de la classe Tk (la classe de fenêtre).
 class Morpion_1vPCalea(Tk):
+    """
+    Classe représentant le jeu de Morpion contre un ordinateur qui joue sur une case non-prise aléatoire.
+    """
     def __init__(self):
         super().__init__()
 
@@ -789,6 +802,9 @@ class Morpion_1vPCalea(Tk):
                 widget.destroy()
     
 class Mode_de_IA(Tk):
+    """
+    Classe représentant une fenêtre avant de jouer au morpion qui permet de choisir la difficulté de l'ordinateur adversaire.
+    """
     
     def __init__(self):
         super().__init__()
@@ -826,6 +842,9 @@ class Mode_de_IA(Tk):
         fenetre.mainloop()
     
 class Mode_de_jeu_morpion(Tk):
+    """
+    Classe représentant la fenêtre de choix du mode de jeu de morpion. c'est aussi la première fenêtre aui s'affiche lors du démarrage
+    """
     
     def __init__(self):
         super().__init__()
@@ -855,6 +874,9 @@ class Mode_de_jeu_morpion(Tk):
         fenetre.mainloop()
     
 class Morpion_1v1(Tk):
+    """
+    Classe représentant le jeu de Morpion contre un autre joueur, les deux joueurs étant sur le même ordinateur 
+    """
 
     def __init__(self):
         super().__init__()
