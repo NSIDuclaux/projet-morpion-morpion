@@ -1,9 +1,13 @@
 from tkinter import *
 from random import randint
-
+import os
 class Morpion_1vPCdef_et_off(Tk):
     def __init__(self):
         super().__init__()
+
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        icon_path = os.path.join(script_dir, "assets", "icon.ico")
+        self.iconbitmap(icon_path)
 
         self.grid_rowconfigure(0, weight=0)  # ajoute une barre en plus pour ajouter des elements supplementaires
         self.grid_rowconfigure(1, weight=1)
