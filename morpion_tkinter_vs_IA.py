@@ -18,39 +18,39 @@ class Morpion_1vPCdef_et_off(Tk):
 
         self.liste_boutons = list()
 
-        bouton1 = Button(self, text=" ", font=("Helvetica",20), height=3, width=6, command=lambda: self.sur_bouton_clique(0, 0))
+        bouton1 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(0, 0))
         bouton1.grid(column=0, row=1, sticky="nswe", padx=3, pady=3)
         self.liste_boutons.append(bouton1)
 
-        bouton2 = Button(self, text=" ", font=("Helvetica",20), height=3, width=6, command=lambda: self.sur_bouton_clique(0, 1))
+        bouton2 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(0, 1))
         bouton2.grid(column=1, row=1, sticky="nswe", padx=3, pady=3)
         self.liste_boutons.append(bouton2)
 
-        bouton3 = Button(self, text=" ", font=("Helvetica",20), height=3, width=6, command=lambda: self.sur_bouton_clique(0, 2))
+        bouton3 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(0, 2))
         bouton3.grid(column=2, row=1, sticky="nswe", padx=3, pady=3)
         self.liste_boutons.append(bouton3)
 
-        bouton4 = Button(self, text=" ", font=("Helvetica",20), height=3, width=6, command=lambda: self.sur_bouton_clique(1, 0))
+        bouton4 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(1, 0))
         bouton4.grid(column=0, row=2, sticky="nswe", padx=3, pady=3)
         self.liste_boutons.append(bouton4)
 
-        bouton5 = Button(self, text=" ", font=("Helvetica",20), height=3, width=6, command=lambda: self.sur_bouton_clique(1, 1))
+        bouton5 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(1, 1))
         bouton5.grid(column=1, row=2, sticky="nswe", padx=3, pady=3)
         self.liste_boutons.append(bouton5)
 
-        bouton6 = Button(self, text=" ", font=("Helvetica",20), height=3, width=6, command=lambda: self.sur_bouton_clique(1, 2))
+        bouton6 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(1, 2))
         bouton6.grid(column=2, row=2, sticky="nswe", padx=3, pady=3)
         self.liste_boutons.append(bouton6)
 
-        bouton7 = Button(self, text=" ", font=("Helvetica",20), height=3, width=6, command=lambda: self.sur_bouton_clique(2, 0))
+        bouton7 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(2, 0))
         bouton7.grid(column=0, row=3, sticky="nswe", padx=3, pady=3)
         self.liste_boutons.append(bouton7)
 
-        bouton8 = Button(self, text=" ", font=("Helvetica",20), height=3, width=6, command=lambda: self.sur_bouton_clique(2, 1))
+        bouton8 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(2, 1))
         bouton8.grid(column=1, row=3, sticky="nswe", padx=3, pady=3)
         self.liste_boutons.append(bouton8)
 
-        bouton9 = Button(self, text="  ", font=("Helvetica",20), height=3, width=6, command=lambda: self.sur_bouton_clique(2, 2))
+        bouton9 = Button(self, text="  ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(2, 2))
         bouton9.grid(column=2, row=3, sticky="nswe", padx=3, pady=3)
         self.liste_boutons.append(bouton9)
         
@@ -311,39 +311,39 @@ class Morpion_1vPCdef(Tk):
 
         self.liste_boutons = list()
 
-        bouton1 = Button(self, text=" ", font=("Helvetica",20), height=3, width=6, command=lambda: self.sur_bouton_clique(0, 0))
+        bouton1 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(0, 0))
         bouton1.grid(column=0, row=1, sticky="nswe", padx=3, pady=3)
         self.liste_boutons.append(bouton1)
 
-        bouton2 = Button(self, text=" ", font=("Helvetica",20), height=3, width=6, command=lambda: self.sur_bouton_clique(0, 1))
+        bouton2 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(0, 1))
         bouton2.grid(column=1, row=1, sticky="nswe", padx=3, pady=3)
         self.liste_boutons.append(bouton2)
 
-        bouton3 = Button(self, text=" ", font=("Helvetica",20), height=3, width=6, command=lambda: self.sur_bouton_clique(0, 2))
+        bouton3 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(0, 2))
         bouton3.grid(column=2, row=1, sticky="nswe", padx=3, pady=3)
         self.liste_boutons.append(bouton3)
 
-        bouton4 = Button(self, text=" ", font=("Helvetica",20), height=3, width=6, command=lambda: self.sur_bouton_clique(1, 0))
+        bouton4 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(1, 0))
         bouton4.grid(column=0, row=2, sticky="nswe", padx=3, pady=3)
         self.liste_boutons.append(bouton4)
 
-        bouton5 = Button(self, text=" ", font=("Helvetica",20), height=3, width=6, command=lambda: self.sur_bouton_clique(1, 1))
+        bouton5 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(1, 1))
         bouton5.grid(column=1, row=2, sticky="nswe", padx=3, pady=3)
         self.liste_boutons.append(bouton5)
 
-        bouton6 = Button(self, text=" ", font=("Helvetica",20), height=3, width=6, command=lambda: self.sur_bouton_clique(1, 2))
+        bouton6 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(1, 2))
         bouton6.grid(column=2, row=2, sticky="nswe", padx=3, pady=3)
         self.liste_boutons.append(bouton6)
 
-        bouton7 = Button(self, text=" ", font=("Helvetica",20), height=3, width=6, command=lambda: self.sur_bouton_clique(2, 0))
+        bouton7 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(2, 0))
         bouton7.grid(column=0, row=3, sticky="nswe", padx=3, pady=3)
         self.liste_boutons.append(bouton7)
 
-        bouton8 = Button(self, text=" ", font=("Helvetica",20), height=3, width=6, command=lambda: self.sur_bouton_clique(2, 1))
+        bouton8 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(2, 1))
         bouton8.grid(column=1, row=3, sticky="nswe", padx=3, pady=3)
         self.liste_boutons.append(bouton8)
 
-        bouton9 = Button(self, text="  ", font=("Helvetica",20), height=3, width=6, command=lambda: self.sur_bouton_clique(2, 2))
+        bouton9 = Button(self, text="  ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(2, 2))
         bouton9.grid(column=2, row=3, sticky="nswe", padx=3, pady=3)
         self.liste_boutons.append(bouton9)
         
@@ -577,39 +577,39 @@ class Morpion_1vPCalea(Tk):
 
         self.liste_boutons = list()
 
-        bouton1 = Button(self, text=" ", font=("Helvetica",20), height=3, width=6, command=lambda: self.sur_bouton_clique(0, 0))
+        bouton1 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(0, 0))
         bouton1.grid(column=0, row=1, sticky="nswe", padx=3, pady=3)
         self.liste_boutons.append(bouton1)
 
-        bouton2 = Button(self, text=" ", font=("Helvetica",20), height=3, width=6, command=lambda: self.sur_bouton_clique(0, 1))
+        bouton2 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(0, 1))
         bouton2.grid(column=1, row=1, sticky="nswe", padx=3, pady=3)
         self.liste_boutons.append(bouton2)
 
-        bouton3 = Button(self, text=" ", font=("Helvetica",20), height=3, width=6, command=lambda: self.sur_bouton_clique(0, 2))
+        bouton3 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(0, 2))
         bouton3.grid(column=2, row=1, sticky="nswe", padx=3, pady=3)
         self.liste_boutons.append(bouton3)
 
-        bouton4 = Button(self, text=" ", font=("Helvetica",20), height=3, width=6, command=lambda: self.sur_bouton_clique(1, 0))
+        bouton4 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(1, 0))
         bouton4.grid(column=0, row=2, sticky="nswe", padx=3, pady=3)
         self.liste_boutons.append(bouton4)
 
-        bouton5 = Button(self, text=" ", font=("Helvetica",20), height=3, width=6, command=lambda: self.sur_bouton_clique(1, 1))
+        bouton5 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(1, 1))
         bouton5.grid(column=1, row=2, sticky="nswe", padx=3, pady=3)
         self.liste_boutons.append(bouton5)
 
-        bouton6 = Button(self, text=" ", font=("Helvetica",20), height=3, width=6, command=lambda: self.sur_bouton_clique(1, 2))
+        bouton6 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(1, 2))
         bouton6.grid(column=2, row=2, sticky="nswe", padx=3, pady=3)
         self.liste_boutons.append(bouton6)
 
-        bouton7 = Button(self, text=" ", font=("Helvetica",20), height=3, width=6, command=lambda: self.sur_bouton_clique(2, 0))
+        bouton7 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(2, 0))
         bouton7.grid(column=0, row=3, sticky="nswe", padx=3, pady=3)
         self.liste_boutons.append(bouton7)
 
-        bouton8 = Button(self, text=" ", font=("Helvetica",20), height=3, width=6, command=lambda: self.sur_bouton_clique(2, 1))
+        bouton8 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(2, 1))
         bouton8.grid(column=1, row=3, sticky="nswe", padx=3, pady=3)
         self.liste_boutons.append(bouton8)
 
-        bouton9 = Button(self, text="  ", font=("Helvetica",20), height=3, width=6, command=lambda: self.sur_bouton_clique(2, 2))
+        bouton9 = Button(self, text="  ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(2, 2))
         bouton9.grid(column=2, row=3, sticky="nswe", padx=3, pady=3)
         self.liste_boutons.append(bouton9)
         
@@ -790,13 +790,13 @@ class Mode_de_IA(Tk):
         self.grid_columnconfigure(1, weight=1)
         self.grid_columnconfigure(2, weight=1)
         
-        bouton1v1 = Button(self, text="Facile", font=("Helvetica",20), height=6, width=12, command=lambda: self.creer_morpion_IA_Facile())
+        bouton1v1 = Button(self, text="Facile", font=("Arial",20), height=6, width=12, command=lambda: self.creer_morpion_IA_Facile())
         bouton1v1.grid(column=0, row=1, sticky="", padx=3, pady=3)
         
-        bouton1v1 = Button(self, text="Moyen", font=("Helvetica",20), height=6, width=12, command=lambda: self.creer_morpion_IA_Moyen())
+        bouton1v1 = Button(self, text="Moyen", font=("Arial",20), height=6, width=12, command=lambda: self.creer_morpion_IA_Moyen())
         bouton1v1.grid(column=1, row=1, sticky="nswe", padx=3, pady=3)
         
-        bouton1v1 = Button(self, text="Difficile", font=("Helvetica",20), height=6, width=12, command=lambda: self.creer_morpion_IA_Difficile())
+        bouton1v1 = Button(self, text="Difficile", font=("Arial",20), height=6, width=12, command=lambda: self.creer_morpion_IA_Difficile())
         bouton1v1.grid(column=2, row=1, sticky="nswe", padx=3, pady=3)
         
     def creer_morpion_IA_Facile(self):
@@ -822,10 +822,10 @@ class Mode_de_jeu_morpion(Tk):
         self.grid_columnconfigure(0, weight=1)
         self.grid_columnconfigure(1, weight=1)
         
-        bouton1v1 = Button(self, text="1 v 1", font=("Helvetica",20), height=6, width=12, command=lambda: self.creer_morpion1v1())
+        bouton1v1 = Button(self, text="1 v 1", font=("Arial",20), height=6, width=12, command=lambda: self.creer_morpion1v1())
         bouton1v1.grid(column=0, row=1, sticky="w", padx=3, pady=3)
 
-        bouton1vpc = Button(self, text="1 v IA", font=("Helvetica",20), height=6, width=12, command=lambda: self.mode_morpion1vPC())
+        bouton1vpc = Button(self, text="1 v IA", font=("Arial",20), height=6, width=12, command=lambda: self.mode_morpion1vPC())
         bouton1vpc.grid(column=1, row=1, sticky="e", padx=3, pady=3)
         
     
@@ -858,39 +858,39 @@ class Morpion_1v1(Tk):
 
         self.liste_boutons = list()
 
-        bouton1 = Button(self, text=" ", font=("Helvetica",20), height=3, width=6, command=lambda: self.sur_bouton_clique(0, 0))
+        bouton1 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(0, 0))
         bouton1.grid(column=0, row=1, sticky="nswe", padx=3, pady=3)
         self.liste_boutons.append(bouton1)
 
-        bouton2 = Button(self, text=" ", font=("Helvetica",20), height=3, width=6, command=lambda: self.sur_bouton_clique(0, 1))
+        bouton2 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(0, 1))
         bouton2.grid(column=1, row=1, sticky="nswe", padx=3, pady=3)
         self.liste_boutons.append(bouton2)
 
-        bouton3 = Button(self, text=" ", font=("Helvetica",20), height=3, width=6, command=lambda: self.sur_bouton_clique(0, 2))
+        bouton3 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(0, 2))
         bouton3.grid(column=2, row=1, sticky="nswe", padx=3, pady=3)
         self.liste_boutons.append(bouton3)
 
-        bouton4 = Button(self, text=" ", font=("Helvetica",20), height=3, width=6, command=lambda: self.sur_bouton_clique(1, 0))
+        bouton4 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(1, 0))
         bouton4.grid(column=0, row=2, sticky="nswe", padx=3, pady=3)
         self.liste_boutons.append(bouton4)
 
-        bouton5 = Button(self, text=" ", font=("Helvetica",20), height=3, width=6, command=lambda: self.sur_bouton_clique(1, 1))
+        bouton5 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(1, 1))
         bouton5.grid(column=1, row=2, sticky="nswe", padx=3, pady=3)
         self.liste_boutons.append(bouton5)
 
-        bouton6 = Button(self, text=" ", font=("Helvetica",20), height=3, width=6, command=lambda: self.sur_bouton_clique(1, 2))
+        bouton6 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(1, 2))
         bouton6.grid(column=2, row=2, sticky="nswe", padx=3, pady=3)
         self.liste_boutons.append(bouton6)
 
-        bouton7 = Button(self, text=" ", font=("Helvetica",20), height=3, width=6, command=lambda: self.sur_bouton_clique(2, 0))
+        bouton7 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(2, 0))
         bouton7.grid(column=0, row=3, sticky="nswe", padx=3, pady=3)
         self.liste_boutons.append(bouton7)
 
-        bouton8 = Button(self, text=" ", font=("Helvetica",20), height=3, width=6, command=lambda: self.sur_bouton_clique(2, 1))
+        bouton8 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(2, 1))
         bouton8.grid(column=1, row=3, sticky="nswe", padx=3, pady=3)
         self.liste_boutons.append(bouton8)
 
-        bouton9 = Button(self, text="  ", font=("Helvetica",20), height=3, width=6, command=lambda: self.sur_bouton_clique(2, 2))
+        bouton9 = Button(self, text="  ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(2, 2))
         bouton9.grid(column=2, row=3, sticky="nswe", padx=3, pady=3)
         self.liste_boutons.append(bouton9)
         
