@@ -56,6 +56,32 @@ Le fichier principal `morpion_tkinter_vs_IA.py` contient trois classes principal
    python morpion_tkinter_vs_IA.py
    ```
 
+# Projet Morpion
+
+Bienvenue sur le dépôt GitHub pour le projet de morpion ! Ce projet a pour but de créer une implémentation de jeu de morpion en Python. Il comprend deux versions : une interface graphique avec `morpion_fini.py` et une version en ligne de commande avec `morpion_terminal.py`.
+
+## Description du projet
+
+Le fichier `morpion_fini.py` contient l'implémentation complète du jeu de morpion avec une interface graphique. Le jeu prend en charge deux modes de jeu : un joueur contre un autre joueur sur le même ordinateur et un joueur contre une intelligence artificielle.
+
+Le fichier `morpion_terminal.py` fournit une version en ligne de commande du jeu de morpion pour deux joueurs humains.
+
+Les fonctionnalités incluses dans le projet sont les suivantes :
+
+- Choix du mode de jeu (1 joueur contre 1 joueur ou 1 joueur contre l'IA)
+- Affichage du plateau de jeu avec des cases cliquables (pour `morpion_fini.py`) ou en texte (pour `morpion_terminal.py`)
+- Détermination du gagnant après chaque coup
+- Détection de la fin de la partie (match nul ou joueur gagnant)
+- Possibilité de recommencer une partie
+
+## Comment exécuter le programme
+
+1. Téléchargez les fichiers `morpion_fini.py` et `morpion_terminal.py` sur votre ordinateur.
+2. Ouvrez un terminal ou une invite de commande et accédez au répertoire où vous avez téléchargé les fichiers.
+3. Exécutez la commande suivante pour lancer le programme :
+   - Pour `morpion_fini.py` : `python morpion_fini.py`
+   - Pour `morpion_terminal.py` : `python morpion_terminal.py`
+
 Amusez-vous bien en jouant au Morpion !
 
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/vv7AS4H3)
