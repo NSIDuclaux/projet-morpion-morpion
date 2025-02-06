@@ -662,7 +662,6 @@ class Morpion_1vPCalea(Tk):
         self.compteur = 0
         
     
-    
     def mode_de_jeu(self):
         self.destroy()
         fenetre_modedejeu = Mode_de_jeu_morpion()
@@ -678,7 +677,7 @@ class Morpion_1vPCalea(Tk):
 
     def enlever_surligneur(self, row, col):
         if self.morpion[row][col] == " ":
-            self.liste_boutons[row * 3 + col].config(bg="white")
+            self.liste_boutons[row * 3 + col].config(bg="#d9d9d9")
             self.liste_boutons[row * 3 + col].config(text=" ")
 
     def arret_partie(self):
@@ -814,19 +813,19 @@ class Mode_de_IA(Tk):
         
         self.title("Choix de difficulté")
         
-        self.grid_rowconfigure(0, weight=0)
+        self.grid_rowconfigure(0, weight=1)
         self.grid_columnconfigure(0, weight=1)
         self.grid_columnconfigure(1, weight=1)
         self.grid_columnconfigure(2, weight=1)
         
         bouton1v1 = Button(self, text="Facile", font=("Arial",20), height=6, width=12, command=lambda: self.creer_morpion_IA_Facile())
-        bouton1v1.grid(column=0, row=1, sticky="", padx=3, pady=3)
+        bouton1v1.grid(column=0, row=0, sticky="nsew", padx=3, pady=3)
         
         bouton1v1 = Button(self, text="Moyen", font=("Arial",20), height=6, width=12, command=lambda: self.creer_morpion_IA_Moyen())
-        bouton1v1.grid(column=1, row=1, sticky="nswe", padx=3, pady=3)
+        bouton1v1.grid(column=1, row=0, sticky="nsew", padx=3, pady=3)
         
         bouton1v1 = Button(self, text="Difficile", font=("Arial",20), height=6, width=12, command=lambda: self.creer_morpion_IA_Difficile())
-        bouton1v1.grid(column=2, row=1, sticky="nswe", padx=3, pady=3)
+        bouton1v1.grid(column=2, row=0, sticky="nsew", padx=3, pady=3)
         
     def creer_morpion_IA_Facile(self):
         self.destroy()
