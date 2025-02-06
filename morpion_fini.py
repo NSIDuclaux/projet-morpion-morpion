@@ -812,6 +812,8 @@ class Mode_de_IA(Tk):
         self.icon = PhotoImage(file="icon.png")
         self.iconphoto(False, self.icon)
         
+        self.title("Choix de difficulté")
+        
         self.grid_rowconfigure(0, weight=0)
         self.grid_columnconfigure(0, weight=1)
         self.grid_columnconfigure(1, weight=1)
@@ -851,16 +853,24 @@ class Mode_de_jeu_morpion(Tk):
 
         self.icon = PhotoImage(file="icon.png")
         self.iconphoto(False, self.icon)
+        
+        self.geometry("800x700")
 
-        self.grid_rowconfigure(0, weight=0)
+        self.title("Choix du mode du jeu")
+
+        self.grid_rowconfigure(0, weight=1)
         self.grid_columnconfigure(0, weight=1)
+        
         self.grid_columnconfigure(1, weight=1)
         
-        bouton1v1 = Button(self, text="1 v 1", font=("Arial",20), height=6, width=12, command=lambda: self.creer_morpion1v1())
-        bouton1v1.grid(column=0, row=1, sticky="w", padx=3, pady=3)
-
-        bouton1vpc = Button(self, text="1 v IA", font=("Arial",20), height=6, width=12, command=lambda: self.mode_morpion1vPC())
-        bouton1vpc.grid(column=1, row=1, sticky="e", padx=3, pady=3)
+        
+        
+        bouton1v1 = Button(self, text="1 v 1", font=("Arial",20), command=lambda: self.creer_morpion1v1())
+        bouton1vpc = Button(self, text="1 v IA", font=("Arial",20), command=lambda: self.mode_morpion1vPC())
+        
+        
+        bouton1v1.grid(row=0, column=0, sticky="nsew", padx=3, pady=3)
+        bouton1vpc.grid(row=0, column=1, sticky="nsew", padx=3, pady=3)
         
     
     def creer_morpion1v1(self):
@@ -953,7 +963,7 @@ class Morpion_1v1(Tk):
                         [" ", " ", " "]]
         
         # On dimensionne la fenêtre (400 pixels de large par 400 de haut).
-        self.geometry("400x400")
+        self.geometry("800x800")
 
         # On ajoute un titre à la fenêtre
         self.title("Morpion")
