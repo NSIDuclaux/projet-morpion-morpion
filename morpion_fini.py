@@ -13,6 +13,7 @@ class Morpion_1vPCdef_et_off(Tk):
 
         self.icon = PhotoImage(file="icon.png")
         self.iconphoto(False, self.icon)
+        self.resizable(width=False, height=False)
 
         self.grid_rowconfigure(0, weight=0)  # ajoute une barre en plus pour ajouter des elements supplementaires
         self.grid_rowconfigure(1, weight=1)
@@ -27,47 +28,47 @@ class Morpion_1vPCdef_et_off(Tk):
 
         self.liste_boutons = list()
 
-        bouton1 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(0, 0))
+        bouton1 = Button(self, text=" ", font=("Arial",20), height=5, width=5, command=lambda: self.sur_bouton_clique(0, 0))
         bouton1.grid(column=0, row=1, sticky="nswe", padx=10, pady=10)
         self.liste_boutons.append(bouton1)
 
-        bouton2 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(0, 1))
+        bouton2 = Button(self, text=" ", font=("Arial",20), height=5, width=5, command=lambda: self.sur_bouton_clique(0, 1))
         bouton2.grid(column=1, row=1, sticky="nswe", padx=10, pady=10)
         self.liste_boutons.append(bouton2)
 
-        bouton3 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(0, 2))
+        bouton3 = Button(self, text=" ", font=("Arial",20), height=5, width=5, command=lambda: self.sur_bouton_clique(0, 2))
         bouton3.grid(column=2, row=1, sticky="nswe", padx=10, pady=10)
         self.liste_boutons.append(bouton3)
 
-        bouton4 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(1, 0))
+        bouton4 = Button(self, text=" ", font=("Arial",20), height=5, width=5, command=lambda: self.sur_bouton_clique(1, 0))
         bouton4.grid(column=0, row=2, sticky="nswe", padx=10, pady=10)
         self.liste_boutons.append(bouton4)
 
-        bouton5 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(1, 1))
+        bouton5 = Button(self, text=" ", font=("Arial",20), height=5, width=5, command=lambda: self.sur_bouton_clique(1, 1))
         bouton5.grid(column=1, row=2, sticky="nswe", padx=10, pady=10)
         self.liste_boutons.append(bouton5)
 
-        bouton6 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(1, 2))
+        bouton6 = Button(self, text=" ", font=("Arial",20), height=5, width=5, command=lambda: self.sur_bouton_clique(1, 2))
         bouton6.grid(column=2, row=2, sticky="nswe", padx=10, pady=10)
         self.liste_boutons.append(bouton6)
 
-        bouton7 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(2, 0))
+        bouton7 = Button(self, text=" ", font=("Arial",20), height=5, width=5, command=lambda: self.sur_bouton_clique(2, 0))
         bouton7.grid(column=0, row=3, sticky="nswe", padx=10, pady=10)
         self.liste_boutons.append(bouton7)
 
-        bouton8 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(2, 1))
+        bouton8 = Button(self, text=" ", font=("Arial",20), height=5, width=5, command=lambda: self.sur_bouton_clique(2, 1))
         bouton8.grid(column=1, row=3, sticky="nswe", padx=10, pady=10)
         self.liste_boutons.append(bouton8)
 
-        bouton9 = Button(self, text="  ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(2, 2))
+        bouton9 = Button(self, text="  ", font=("Arial",20), height=5, width=5, command=lambda: self.sur_bouton_clique(2, 2))
         bouton9.grid(column=2, row=3, sticky="nswe", padx=10, pady=10)
         self.liste_boutons.append(bouton9)
         
         retour_modedejeu_bouton = Button(self, text="mode de jeu", command=self.mode_de_jeu, bg='gray24', fg='white', font=("Arial", 14))
-        retour_modedejeu_bouton.grid(column=0, row=6, columnspan=3, sticky="nsew", padx=10, pady=10)
+        retour_modedejeu_bouton.grid(column=0, row=6, columnspan=3, sticky="nsew", padx=3, pady=3)
 
         quitter_bouton = Button(self, text="Quitter", command=self.quitter_jeu, bg='gray24', fg='white', font=("Arial", 14))
-        quitter_bouton.grid(column=0, row=7, columnspan=3, sticky="nsew", padx=10, pady=10)
+        quitter_bouton.grid(column=0, row=7, columnspan=3, sticky="nsew", padx=3, pady=3)
 
 
         for i in range(3):
@@ -84,7 +85,7 @@ class Morpion_1vPCdef_et_off(Tk):
                         [" ", " ", " "]]
         
         # On dimensionne la fenêtre (400 pixels de large par 400 de haut).
-        self.geometry("350x350")
+        self.geometry("400x450")
 
         # On ajoute un titre à la fenêtre
         self.title("Morpion")
@@ -108,7 +109,7 @@ class Morpion_1vPCdef_et_off(Tk):
 
     def enlever_surligneur(self, row, col):
         if self.morpion[row][col] == " ":
-            self.liste_boutons[row * 3 + col].config(bg="white")
+            self.liste_boutons[row * 3 + col].config(bg="#d9d9d9")
             self.liste_boutons[row * 3 + col].config(text=" ")
 
     def arret_partie(self):
@@ -314,6 +315,7 @@ class Morpion_1vPCdef(Tk):
 
         self.icon = PhotoImage(file="icon.png")
         self.iconphoto(False, self.icon)
+        self.resizable(width=False, height=False)
 
         self.grid_rowconfigure(0, weight=0)  # ajoute une barre en plus pour ajouter des elements supplementaires
         self.grid_rowconfigure(1, weight=1)
@@ -328,47 +330,47 @@ class Morpion_1vPCdef(Tk):
 
         self.liste_boutons = list()
 
-        bouton1 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(0, 0))
+        bouton1 = Button(self, text=" ", font=("Arial",20), height=5, width=5, command=lambda: self.sur_bouton_clique(0, 0))
         bouton1.grid(column=0, row=1, sticky="nswe", padx=10, pady=10)
         self.liste_boutons.append(bouton1)
 
-        bouton2 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(0, 1))
+        bouton2 = Button(self, text=" ", font=("Arial",20), height=5, width=5, command=lambda: self.sur_bouton_clique(0, 1))
         bouton2.grid(column=1, row=1, sticky="nswe", padx=10, pady=10)
         self.liste_boutons.append(bouton2)
 
-        bouton3 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(0, 2))
+        bouton3 = Button(self, text=" ", font=("Arial",20), height=5, width=5, command=lambda: self.sur_bouton_clique(0, 2))
         bouton3.grid(column=2, row=1, sticky="nswe", padx=10, pady=10)
         self.liste_boutons.append(bouton3)
 
-        bouton4 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(1, 0))
+        bouton4 = Button(self, text=" ", font=("Arial",20), height=5, width=5, command=lambda: self.sur_bouton_clique(1, 0))
         bouton4.grid(column=0, row=2, sticky="nswe", padx=10, pady=10)
         self.liste_boutons.append(bouton4)
 
-        bouton5 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(1, 1))
+        bouton5 = Button(self, text=" ", font=("Arial",20), height=5, width=5, command=lambda: self.sur_bouton_clique(1, 1))
         bouton5.grid(column=1, row=2, sticky="nswe", padx=10, pady=10)
         self.liste_boutons.append(bouton5)
 
-        bouton6 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(1, 2))
+        bouton6 = Button(self, text=" ", font=("Arial",20), height=5, width=5, command=lambda: self.sur_bouton_clique(1, 2))
         bouton6.grid(column=2, row=2, sticky="nswe", padx=10, pady=10)
         self.liste_boutons.append(bouton6)
 
-        bouton7 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(2, 0))
+        bouton7 = Button(self, text=" ", font=("Arial",20), height=5, width=5, command=lambda: self.sur_bouton_clique(2, 0))
         bouton7.grid(column=0, row=3, sticky="nswe", padx=10, pady=10)
         self.liste_boutons.append(bouton7)
 
-        bouton8 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(2, 1))
+        bouton8 = Button(self, text=" ", font=("Arial",20), height=5, width=5, command=lambda: self.sur_bouton_clique(2, 1))
         bouton8.grid(column=1, row=3, sticky="nswe", padx=10, pady=10)
         self.liste_boutons.append(bouton8)
 
-        bouton9 = Button(self, text="  ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(2, 2))
+        bouton9 = Button(self, text="  ", font=("Arial",20), height=5, width=5, command=lambda: self.sur_bouton_clique(2, 2))
         bouton9.grid(column=2, row=3, sticky="nswe", padx=10, pady=10)
         self.liste_boutons.append(bouton9)
         
         retour_modedejeu_bouton = Button(self, text="mode de jeu", command=self.mode_de_jeu, bg='gray24', fg='white', font=("Arial", 14))
-        retour_modedejeu_bouton.grid(column=0, row=6, columnspan=3, sticky="nsew", padx=10, pady=10)
+        retour_modedejeu_bouton.grid(column=0, row=6, columnspan=3, sticky="nsew", padx=3, pady=3)
 
         quitter_bouton = Button(self, text="Quitter", command=self.quitter_jeu, bg='gray24', fg='white', font=("Arial", 14))
-        quitter_bouton.grid(column=0, row=7, columnspan=3, sticky="nsew", padx=10, pady=10)
+        quitter_bouton.grid(column=0, row=7, columnspan=3, sticky="nsew", padx=3, pady=3)
 
 
         for i in range(3):
@@ -385,7 +387,7 @@ class Morpion_1vPCdef(Tk):
                         [" ", " ", " "]]
         
         # On dimensionne la fenêtre (400 pixels de large par 400 de haut).
-        self.geometry("350x350")
+        self.geometry("400x450")
 
         # On ajoute un titre à la fenêtre
         self.title("Morpion")
@@ -409,7 +411,7 @@ class Morpion_1vPCdef(Tk):
 
     def enlever_surligneur(self, row, col):
         if self.morpion[row][col] == " ":
-            self.liste_boutons[row * 3 + col].config(bg="white")
+            self.liste_boutons[row * 3 + col].config(bg="#d9d9d9")
             self.liste_boutons[row * 3 + col].config(text=" ")
 
     def arret_partie(self):
@@ -584,6 +586,9 @@ class Morpion_1vPCalea(Tk):
 
         self.icon = PhotoImage(file="icon.png")
         self.iconphoto(False, self.icon)
+        
+        self.minsize(400, 450)
+        self.resizable(width=False, height=False)
 
         self.grid_rowconfigure(0, weight=0)  # ajoute une barre en plus pour ajouter des elements supplementaires
         self.grid_rowconfigure(1, weight=1)
@@ -598,47 +603,57 @@ class Morpion_1vPCalea(Tk):
 
         self.liste_boutons = list()
 
-        bouton1 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(0, 0))
+        bouton1 = Button(self, text=" ", font=("Arial",20), height=5, width=5, command=lambda: self.sur_bouton_clique(0, 0))
         bouton1.grid(column=0, row=1, sticky="nswe", padx=10, pady=10)
         self.liste_boutons.append(bouton1)
 
-        bouton2 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(0, 1))
+
+        bouton2 = Button(self, text=" ", font=("Arial",20), height=5, width=5, command=lambda: self.sur_bouton_clique(0, 1))
         bouton2.grid(column=1, row=1, sticky="nswe", padx=10, pady=10)
         self.liste_boutons.append(bouton2)
 
-        bouton3 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(0, 2))
+
+        bouton3 = Button(self, text=" ", font=("Arial",20), height=5, width=5, command=lambda: self.sur_bouton_clique(0, 2))
         bouton3.grid(column=2, row=1, sticky="nswe", padx=10, pady=10)
         self.liste_boutons.append(bouton3)
 
-        bouton4 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(1, 0))
+
+        bouton4 = Button(self, text=" ", font=("Arial",20), height=5, width=5, command=lambda: self.sur_bouton_clique(1, 0))
         bouton4.grid(column=0, row=2, sticky="nswe", padx=10, pady=10)
         self.liste_boutons.append(bouton4)
 
-        bouton5 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(1, 1))
+
+        bouton5 = Button(self, text=" ", font=("Arial",20), height=5, width=5, command=lambda: self.sur_bouton_clique(1, 1))
         bouton5.grid(column=1, row=2, sticky="nswe", padx=10, pady=10)
         self.liste_boutons.append(bouton5)
 
-        bouton6 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(1, 2))
+
+        bouton6 = Button(self, text=" ", font=("Arial",20), height=5, width=5, command=lambda: self.sur_bouton_clique(1, 2))
         bouton6.grid(column=2, row=2, sticky="nswe", padx=10, pady=10)
         self.liste_boutons.append(bouton6)
 
-        bouton7 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(2, 0))
+
+        bouton7 = Button(self, text=" ", font=("Arial",20), height=5, width=5, command=lambda: self.sur_bouton_clique(2, 0))
         bouton7.grid(column=0, row=3, sticky="nswe", padx=10, pady=10)
         self.liste_boutons.append(bouton7)
 
-        bouton8 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(2, 1))
+
+        bouton8 = Button(self, text=" ", font=("Arial",20), height=5, width=5, command=lambda: self.sur_bouton_clique(2, 1))
         bouton8.grid(column=1, row=3, sticky="nswe", padx=10, pady=10)
         self.liste_boutons.append(bouton8)
 
-        bouton9 = Button(self, text="  ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(2, 2))
+
+        bouton9 = Button(self, text="  ", font=("Arial",20), height=5, width=5, command=lambda: self.sur_bouton_clique(2, 2))
         bouton9.grid(column=2, row=3, sticky="nswe", padx=10, pady=10)
         self.liste_boutons.append(bouton9)
+
         
         retour_modedejeu_bouton = Button(self, text="mode de jeu", command=self.mode_de_jeu, bg='gray24', fg='white', font=("Arial", 14))
-        retour_modedejeu_bouton.grid(column=0, row=6, columnspan=3, sticky="nsew", padx=10, pady=10)
+        retour_modedejeu_bouton.grid(column=0, row=6, columnspan=3, sticky="nsew", padx=3, pady=3)
 
         quitter_bouton = Button(self, text="Quitter", command=self.quitter_jeu, bg='gray24', fg='white', font=("Arial", 14))
-        quitter_bouton.grid(column=0, row=7, columnspan=3, sticky="nsew", padx=10, pady=10)
+        quitter_bouton.grid(column=0, row=7, columnspan=3, sticky="nsew", padx=3, pady=3)
+
 
 
         for i in range(3):
@@ -654,7 +669,7 @@ class Morpion_1vPCalea(Tk):
                         [" ", " ", " "]]
         
         # On dimensionne la fenêtre (400 pixels de large par 400 de haut).
-        self.geometry("350x350")
+        self.geometry("400x450")
 
         # On ajoute un titre à la fenêtre
         self.title("Morpion")
@@ -892,6 +907,7 @@ class Morpion_1v1(Tk):
 
         self.icon = PhotoImage(file="icon.png")
         self.iconphoto(False, self.icon)
+        self.resizable(width=False, height=False)
 
         self.grid_rowconfigure(0, weight=0)  # ajoute une barre en plus pour ajouter des elements supplementaires
         self.grid_rowconfigure(1, weight=1)
@@ -906,47 +922,47 @@ class Morpion_1v1(Tk):
 
         self.liste_boutons = list()
 
-        bouton1 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(0, 0))
+        bouton1 = Button(self, text=" ", font=("Arial",20), height=5, width=5, command=lambda: self.sur_bouton_clique(0, 0))
         bouton1.grid(column=0, row=1, sticky="nswe", padx=10, pady=10)
         self.liste_boutons.append(bouton1)
 
-        bouton2 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(0, 1))
+        bouton2 = Button(self, text=" ", font=("Arial",20), height=5, width=5, command=lambda: self.sur_bouton_clique(0, 1))
         bouton2.grid(column=1, row=1, sticky="nswe", padx=10, pady=10)
         self.liste_boutons.append(bouton2)
 
-        bouton3 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(0, 2))
+        bouton3 = Button(self, text=" ", font=("Arial",20), height=5, width=5, command=lambda: self.sur_bouton_clique(0, 2))
         bouton3.grid(column=2, row=1, sticky="nswe", padx=10, pady=10)
         self.liste_boutons.append(bouton3)
 
-        bouton4 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(1, 0))
+        bouton4 = Button(self, text=" ", font=("Arial",20), height=5, width=5, command=lambda: self.sur_bouton_clique(1, 0))
         bouton4.grid(column=0, row=2, sticky="nswe", padx=10, pady=10)
         self.liste_boutons.append(bouton4)
 
-        bouton5 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(1, 1))
+        bouton5 = Button(self, text=" ", font=("Arial",20), height=5, width=5, command=lambda: self.sur_bouton_clique(1, 1))
         bouton5.grid(column=1, row=2, sticky="nswe", padx=10, pady=10)
         self.liste_boutons.append(bouton5)
 
-        bouton6 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(1, 2))
+        bouton6 = Button(self, text=" ", font=("Arial",20), height=5, width=5, command=lambda: self.sur_bouton_clique(1, 2))
         bouton6.grid(column=2, row=2, sticky="nswe", padx=10, pady=10)
         self.liste_boutons.append(bouton6)
 
-        bouton7 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(2, 0))
+        bouton7 = Button(self, text=" ", font=("Arial",20), height=5, width=5, command=lambda: self.sur_bouton_clique(2, 0))
         bouton7.grid(column=0, row=3, sticky="nswe", padx=10, pady=10)
         self.liste_boutons.append(bouton7)
 
-        bouton8 = Button(self, text=" ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(2, 1))
+        bouton8 = Button(self, text=" ", font=("Arial",20), height=5, width=5, command=lambda: self.sur_bouton_clique(2, 1))
         bouton8.grid(column=1, row=3, sticky="nswe", padx=10, pady=10)
         self.liste_boutons.append(bouton8)
 
-        bouton9 = Button(self, text="  ", font=("Arial",20), height=3, width=6, command=lambda: self.sur_bouton_clique(2, 2))
+        bouton9 = Button(self, text="  ", font=("Arial",20), height=5, width=5, command=lambda: self.sur_bouton_clique(2, 2))
         bouton9.grid(column=2, row=3, sticky="nswe", padx=10, pady=10)
         self.liste_boutons.append(bouton9)
         
         retour_modedejeu_bouton = Button(self, text="mode de jeu", command=self.mode_de_jeu, bg='gray24', fg='white', font=("Arial", 14))
-        retour_modedejeu_bouton.grid(column=0, row=6, columnspan=3, sticky="nsew", padx=10, pady=10)
+        retour_modedejeu_bouton.grid(column=0, row=6, columnspan=3, sticky="nsew", padx=3, pady=3)
 
         quitter_bouton = Button(self, text="Quitter", command=self.quitter_jeu, bg='gray24', fg='white', font=("Arial", 14))
-        quitter_bouton.grid(column=0, row=7, columnspan=3, sticky="nsew", padx=10, pady=10)
+        quitter_bouton.grid(column=0, row=7, columnspan=3, sticky="nsew", padx=3, pady=3)
 
 
         for i in range(3):
@@ -962,7 +978,7 @@ class Morpion_1v1(Tk):
                         [" ", " ", " "]]
         
         # On dimensionne la fenêtre (400 pixels de large par 400 de haut).
-        self.geometry("400x400")
+        self.geometry("400x450")
 
         # On ajoute un titre à la fenêtre
         self.title("Morpion")
@@ -984,7 +1000,7 @@ class Morpion_1v1(Tk):
 
     def enlever_surligneur(self, row, col):
         if self.morpion[row][col] == " ":
-            self.liste_boutons[row * 3 + col].config(bg="white")
+            self.liste_boutons[row * 3 + col].config(bg="#d9d9d9")
             self.liste_boutons[row * 3 + col].config(text=" ")
 
     def arret_partie(self):
