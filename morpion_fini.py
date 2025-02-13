@@ -913,12 +913,22 @@ class Morpion_1v1(Tk):
         self.grid_rowconfigure(1, weight=1)
         self.grid_rowconfigure(2, weight=1)
         self.grid_rowconfigure(3, weight=1)
+        self.grid_rowconfigure(4, weight=1)
     
         self.grid_columnconfigure(0, weight=1)
         self.grid_columnconfigure(1, weight=1)
         self.grid_columnconfigure(2, weight=1)
 
+
         self.configure(background='gray24')
+        
+        mb= Menubutton (self, text="size", relief=RAISED)
+        mb.grid(column=2, row=4,sticky="se",padx=3, pady=3)
+        mb["menu"] = mb.menu
+        
+        mb.menu.add_checkbutton (label="small", command=lambda: self.taille_ecran(1))
+        mb.menu.add_checkbutton (label="medium", command=lambda: self.taille_ecran(2))
+        mb.menu.add_checkbutton (label="big", command=lambda: self.taille_ecran(3)) # a faire : methode taille_ecran(n) avec n = 1 ou 2 ou 3
 
         self.liste_boutons = list()
 
