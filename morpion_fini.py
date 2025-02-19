@@ -869,13 +869,12 @@ class Mode_de_jeu_morpion(Tk):
         self.grid_columnconfigure(0, weight=1)
         self.grid_columnconfigure(1, weight=1)
         
-        self.logo_image = PhotoImage(file="logo.png")
+        self.logo_image = PhotoImage(file="logocrop.png")
+        self.logo_label = Label(self, image=self.logo_image, background='gray24')
+        self.logo_label.grid(row=0, column=0, columnspan=2, sticky="nsew", padx=10, pady=10)
         
         bouton1v1 = Button(self, text="1 v 1", font=("Arial",20), command=lambda: self.creer_morpion1v1())
         bouton1vpc = Button(self, text="1 v IA", font=("Arial",20), command=lambda: self.mode_morpion1vPC())
-        
-        self.logo_label = Label(self, image=self.logo_image, background='gray24')
-        self.logo_label.grid(row=0, column=0, columnspan=2, sticky="nsew", padx=10, pady=10)
 
         bouton1v1.grid(row=0, column=0, sticky="nsew", padx=10, pady=10)
         bouton1vpc.grid(row=0, column=1, sticky="nsew", padx=10, pady=10)
