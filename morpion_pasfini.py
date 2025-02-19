@@ -11,6 +11,10 @@ class Morpion_1vPCdef_et_off(Tk):
     def __init__(self):
         super().__init__()
 
+        self.icon = PhotoImage(file="icon.png")
+        self.iconphoto(False, self.icon)
+        self.resizable(width=False, height=False)
+
         self.grid_rowconfigure(0, weight=0)  # ajoute une barre en plus pour ajouter des elements supplementaires
         self.grid_rowconfigure(1, weight=1)
         self.grid_rowconfigure(2, weight=1)
@@ -82,9 +86,6 @@ class Morpion_1vPCdef_et_off(Tk):
         
         # On dimensionne la fenêtre (400 pixels de large par 400 de haut).
         self.geometry("400x450")
-
-        self.minsize(400, 450)
-        self.resizable(width=False, height=False)
 
         # On ajoute un titre à la fenêtre
         self.title("Morpion")
@@ -312,6 +313,10 @@ class Morpion_1vPCdef(Tk):
     def __init__(self):
         super().__init__()
 
+        self.icon = PhotoImage(file="icon.png")
+        self.iconphoto(False, self.icon)
+        self.resizable(width=False, height=False)
+
         self.grid_rowconfigure(0, weight=0)  # ajoute une barre en plus pour ajouter des elements supplementaires
         self.grid_rowconfigure(1, weight=1)
         self.grid_rowconfigure(2, weight=1)
@@ -383,9 +388,6 @@ class Morpion_1vPCdef(Tk):
         
         # On dimensionne la fenêtre (400 pixels de large par 400 de haut).
         self.geometry("400x450")
-
-        self.minsize(400, 450)
-        self.resizable(width=False, height=False)
 
         # On ajoute un titre à la fenêtre
         self.title("Morpion")
@@ -582,6 +584,12 @@ class Morpion_1vPCalea(Tk):
     def __init__(self):
         super().__init__()
 
+        self.icon = PhotoImage(file="icon.png")
+        self.iconphoto(False, self.icon)
+        
+        self.minsize(400, 450)
+        self.resizable(width=False, height=False)
+
         self.grid_rowconfigure(0, weight=0)  # ajoute une barre en plus pour ajouter des elements supplementaires
         self.grid_rowconfigure(1, weight=1)
         self.grid_rowconfigure(2, weight=1)
@@ -662,9 +670,6 @@ class Morpion_1vPCalea(Tk):
         
         # On dimensionne la fenêtre (400 pixels de large par 400 de haut).
         self.geometry("400x450")
-
-        self.minsize(400, 450)
-        self.resizable(width=False, height=False)
 
         # On ajoute un titre à la fenêtre
         self.title("Morpion")
@@ -818,15 +823,15 @@ class Mode_de_IA(Tk):
     def __init__(self):
         super().__init__()
 
+        self.icon = PhotoImage(file="icon.png")
+        self.iconphoto(False, self.icon)
+        
         self.title("Choix de difficulté")
         
         self.grid_rowconfigure(0, weight=1)
         self.grid_columnconfigure(0, weight=1)
         self.grid_columnconfigure(1, weight=1)
         self.grid_columnconfigure(2, weight=1)
-
-        self.minsize(400, 450)
-        self.resizable(width=False, height=False)
         
         bouton1v1 = Button(self, text="Facile", font=("Arial",20), height=6, width=12, command=lambda: self.creer_morpion_IA_Facile())
         bouton1v1.grid(column=0, row=0, sticky="nsew", padx=10, pady=10)
@@ -860,12 +865,10 @@ class Mode_de_jeu_morpion(Tk):
     def __init__(self):
         super().__init__()
 
-        self.geometry("600x250")
-
+        self.icon = PhotoImage(file="icon.png")
+        self.iconphoto(False, self.icon)
         
-        self.resizable(width=False, height=False)
-
-        self.configure(background='gray24')
+        self.geometry("800x700")
 
         self.title("Choix du mode du jeu")
 
@@ -902,16 +905,30 @@ class Morpion_1v1(Tk):
     def __init__(self):
         super().__init__()
 
+        self.icon = PhotoImage(file="icon.png")
+        self.iconphoto(False, self.icon)
+        self.resizable(width=False, height=False)
+
         self.grid_rowconfigure(0, weight=0)  # ajoute une barre en plus pour ajouter des elements supplementaires
         self.grid_rowconfigure(1, weight=1)
         self.grid_rowconfigure(2, weight=1)
         self.grid_rowconfigure(3, weight=1)
+        self.grid_rowconfigure(4, weight=1)
     
         self.grid_columnconfigure(0, weight=1)
         self.grid_columnconfigure(1, weight=1)
         self.grid_columnconfigure(2, weight=1)
 
+
         self.configure(background='gray24')
+        
+        mb= Menubutton (self, text="size", relief=RAISED)
+        mb.grid(column=2, row=4,sticky="se",padx=3, pady=3)
+        mb["menu"] = mb.menu
+        
+        mb.menu.add_checkbutton (label="small", command=lambda: self.taille_ecran(1))
+        mb.menu.add_checkbutton (label="medium", command=lambda: self.taille_ecran(2))
+        mb.menu.add_checkbutton (label="big", command=lambda: self.taille_ecran(3)) # a faire : methode taille_ecran(n) avec n = 1 ou 2 ou 3
 
         self.liste_boutons = list()
 
@@ -972,9 +989,6 @@ class Morpion_1v1(Tk):
         
         # On dimensionne la fenêtre (400 pixels de large par 400 de haut).
         self.geometry("400x450")
-
-        self.minsize(400, 450)
-        self.resizable(width=False, height=False)
 
         # On ajoute un titre à la fenêtre
         self.title("Morpion")
@@ -1098,17 +1112,6 @@ class Morpion_1v1(Tk):
 
 # On crée notre fenêtre et on l'affiche
 window = Mode_de_jeu_morpion()
-
-#changement de l'icone de la fenetre
-
-#window.iconphoto(False, PhotoImage(file="icon.png"))
-#window.iconbitmap("icon.png")
-
 window.mainloop()
 
-### a faire :
-###
-### 1: ajouter des commentaires et une docstring pour la class
-###
-###
 
