@@ -1,6 +1,5 @@
 from tkinter import *
 from random import randint
-from PIL import Image, ImageTk
 
 class Morpion_1vPCdef_et_off(Tk):
     """
@@ -22,8 +21,6 @@ class Morpion_1vPCdef_et_off(Tk):
         self.grid_columnconfigure(2, weight=1)
 
         self.configure(background='gray24')
-
-        self.center_window()
 
         self.liste_boutons = list()
 
@@ -94,15 +91,7 @@ class Morpion_1vPCdef_et_off(Tk):
         
         self.compteur = 0
         
-    def center_window(self):
-
-        screen_width = self.winfo_screenwidth()
-        screen_height = self.winfo_screenheight()
-        window_width = 600
-        window_height = 450
-        x = (screen_width - window_width) // 2
-        y = (screen_height - window_height) // 2
-        self.geometry(f"{window_width}x{window_height}+{x}+{y}")
+    
     
     def mode_de_jeu(self):
         self.destroy()
@@ -302,7 +291,7 @@ class Morpion_1vPCdef_et_off(Tk):
     
     def ajouter_bouton_rejouer(self):
         rejouer_bouton = Button(self, text="Rejouer", command=self.reinitialiser_jeu, bg='gray24', fg='white', font=("Arial", 14))
-        rejouer_bouton.grid(column=0, row=5, columnspan=3, sticky="nsew", padx=3, pady=3)
+        rejouer_bouton.grid(column=0, row=5, columnspan=3, sticky="nsew", padx=10, pady=10)
 
     def reinitialiser_jeu(self):
         self.joueur_actuel = "X"
@@ -333,8 +322,6 @@ class Morpion_1vPCdef(Tk):
         self.grid_columnconfigure(2, weight=1)
 
         self.configure(background='gray24')
-
-        self.center_window()
 
         self.liste_boutons = list()
 
@@ -405,15 +392,7 @@ class Morpion_1vPCdef(Tk):
         
         self.compteur = 0
         
-    def center_window(self):
-
-        screen_width = self.winfo_screenwidth()
-        screen_height = self.winfo_screenheight()
-        window_width = 600
-        window_height = 450
-        x = (screen_width - window_width) // 2
-        y = (screen_height - window_height) // 2
-        self.geometry(f"{window_width}x{window_height}+{x}+{y}")
+    
     
     def mode_de_jeu(self):
         self.destroy()
@@ -584,7 +563,7 @@ class Morpion_1vPCdef(Tk):
     
     def ajouter_bouton_rejouer(self):
         rejouer_bouton = Button(self, text="Rejouer", command=self.reinitialiser_jeu, bg='gray24', fg='white', font=("Arial", 14))
-        rejouer_bouton.grid(column=0, row=5, columnspan=3, sticky="nsew", padx=3, pady=3)
+        rejouer_bouton.grid(column=0, row=5, columnspan=3, sticky="nsew", padx=10, pady=10)
 
     def reinitialiser_jeu(self):
         self.joueur_actuel = "X"
@@ -613,8 +592,6 @@ class Morpion_1vPCalea(Tk):
         self.grid_columnconfigure(2, weight=1)
 
         self.configure(background='gray24')
-
-        self.center_window()
 
         self.liste_boutons = list()
 
@@ -694,16 +671,7 @@ class Morpion_1vPCalea(Tk):
         
         self.compteur = 0
         
-    def center_window(self):
-
-        screen_width = self.winfo_screenwidth()
-        screen_height = self.winfo_screenheight()
-        window_width = 600
-        window_height = 450
-        x = (screen_width - window_width) // 2
-        y = (screen_height - window_height) // 2
-        self.geometry(f"{window_width}x{window_height}+{x}+{y}")
-
+    
     def mode_de_jeu(self):
         self.destroy()
         fenetre_modedejeu = Mode_de_jeu_morpion()
@@ -830,7 +798,7 @@ class Morpion_1vPCalea(Tk):
     
     def ajouter_bouton_rejouer(self):
         rejouer_bouton = Button(self, text="Rejouer", command=self.reinitialiser_jeu, bg='gray24', fg='white', font=("Arial", 14))
-        rejouer_bouton.grid(column=0, row=5, columnspan=3, sticky="nsew", padx=3, pady=3)
+        rejouer_bouton.grid(column=0, row=5, columnspan=3, sticky="nsew", padx=10, pady=10)
 
     def reinitialiser_jeu(self):
         self.joueur_actuel = "X"
@@ -846,76 +814,34 @@ class Mode_de_IA(Tk):
     """
     Classe représentant une fenêtre avant de jouer au morpion qui permet de choisir la difficulté de l'ordinateur adversaire.
     """
-
+    
     def __init__(self):
         super().__init__()
 
         self.title("Choix de difficulté")
-
-        self.geometry("600x450")
-        self.minsize(400, 450)
-        self.resizable(width=False, height=False)
-        self.configure(background='gray24')
-
-        self.center_window()
-
-        self.grid_rowconfigure(0, weight=2)
-        self.grid_rowconfigure(1, weight=1)
-        self.grid_rowconfigure(2, weight=1)
-
+        
+        self.grid_rowconfigure(0, weight=1)
         self.grid_columnconfigure(0, weight=1)
         self.grid_columnconfigure(1, weight=1)
         self.grid_columnconfigure(2, weight=1)
 
-        self.logo_image_pil = Image.open("logocrop.png")
-        self.logo_image_pil = self.resize_image(self.logo_image_pil, max_width=580, max_height=175)
-        self.logo_image = ImageTk.PhotoImage(self.logo_image_pil)
-
-        self.logo_label = Label(self, image=self.logo_image, background='gray24')
-        self.logo_label.grid(row=0, column=0, columnspan=3, sticky="nsew", padx=10, pady=10)
-
-        bouton1vfacile = Button(self, text="Facile", font=("Arial", 20), height=2, width=12,
-                                 command=lambda: self.creer_morpion_IA_Facile(), bg='SystemButtonFace', fg='black')
-        bouton1vfacile.grid(column=0, row=1, sticky="nsew", padx=10, pady=10)
-
-        bouton1vmoyen = Button(self, text="Moyen", font=("Arial", 20), height=2, width=12,
-                                command=lambda: self.creer_morpion_IA_Moyen(), bg='SystemButtonFace', fg='black')
-        bouton1vmoyen.grid(column=1, row=1, sticky="nsew", padx=10, pady=10)
-
-        bouton1vdifficile = Button(self, text="Difficile", font=("Arial", 20), height=2, width=12,
-                                  command=lambda: self.creer_morpion_IA_Difficile(), bg='SystemButtonFace', fg='black')
-        bouton1vdifficile.grid(column=2, row=1, sticky="nsew", padx=10, pady=10)
-
-        boutonretour = Button(self, text="Retour", font=("Arial", 20), height=2, width=12,
-                                  command=lambda: self.retour_mode_jeu(), bg='SystemButtonFace', fg='black')
-        boutonretour.grid(row=2, column=0, columnspan=3, sticky="nsew", padx=10, pady=10)
-
-    def resize_image(self, image, max_width, max_height):
-
-        width, height = image.size
-        if width > max_width or height > max_height:
-            ratio = min(max_width / width, max_height / height)
-            new_width = int(width * ratio)
-            new_height = int(height * ratio)
-            resized_image = image.resize((new_width, new_height), Image.LANCZOS)
-            return resized_image
-        return image
-
-    def center_window(self):
-
-        screen_width = self.winfo_screenwidth()
-        screen_height = self.winfo_screenheight()
-        window_width = 600
-        window_height = 450
-        x = (screen_width - window_width) // 2
-        y = (screen_height - window_height) // 2
-        self.geometry(f"{window_width}x{window_height}+{x}+{y}")
-
+        self.minsize(400, 450)
+        self.resizable(width=False, height=False)
+        
+        bouton1v1 = Button(self, text="Facile", font=("Arial",20), height=6, width=12, command=lambda: self.creer_morpion_IA_Facile())
+        bouton1v1.grid(column=0, row=0, sticky="nsew", padx=10, pady=10)
+        
+        bouton1v1 = Button(self, text="Moyen", font=("Arial",20), height=6, width=12, command=lambda: self.creer_morpion_IA_Moyen())
+        bouton1v1.grid(column=1, row=0, sticky="nsew", padx=10, pady=10)
+        
+        bouton1v1 = Button(self, text="Difficile", font=("Arial",20), height=6, width=12, command=lambda: self.creer_morpion_IA_Difficile())
+        bouton1v1.grid(column=2, row=0, sticky="nsew", padx=10, pady=10)
+        
     def creer_morpion_IA_Facile(self):
         self.destroy()
         fenetre = Morpion_1vPCalea()
         fenetre.mainloop()
-
+        
     def creer_morpion_IA_Moyen(self):
         self.destroy()
         fenetre = Morpion_1vPCdef()
@@ -924,11 +850,6 @@ class Mode_de_IA(Tk):
     def creer_morpion_IA_Difficile(self):
         self.destroy()
         fenetre = Morpion_1vPCdef_et_off()
-        fenetre.mainloop()
-
-    def retour_mode_jeu(self):
-        self.destroy()
-        fenetre = Mode_de_jeu_morpion()
         fenetre.mainloop()
     
 class Mode_de_jeu_morpion(Tk):
@@ -944,49 +865,20 @@ class Mode_de_jeu_morpion(Tk):
         self.configure(background='gray24')
         self.title("Choix du mode du jeu")
 
-        self.center_window()
-
-        self.grid_rowconfigure(0, weight=2)
         self.grid_rowconfigure(1, weight=1)
-
         self.grid_columnconfigure(0, weight=1)
         self.grid_columnconfigure(1, weight=1)
         
-        # self.logo_image = PhotoImage(file="logocrop.png")
-        # self.logo_label = Label(self, image=self.logo_image, background='gray24')
-        # self.logo_label.grid(row=0, column=0, columnspan=2, sticky="nsew", padx=10, pady=10)
-
-        self.logo_image = Image.open("logocrop.png")
-        self.logo_image = self.resize_image(self.logo_image, max_width=580, max_height=175)
-        self.logo_image = ImageTk.PhotoImage(self.logo_image)
+        self.logo_image = PhotoImage(file="logocrop.png")
         self.logo_label = Label(self, image=self.logo_image, background='gray24')
         self.logo_label.grid(row=0, column=0, columnspan=2, sticky="nsew", padx=10, pady=10)
-
-        bouton1v1 = Button(self, text="1 v 1", font=("Arial",20), command=lambda: self.creer_morpion1v1(), bg='SystemButtonFace', fg='black')
-        bouton1vpc = Button(self, text="1 v PC", font=("Arial",20), command=lambda: self.mode_morpion1vPC(), bg='SystemButtonFace', fg='black')
-
-        bouton1v1.grid(row=1, column=0, sticky="nsew", padx=10, pady=10)
-        bouton1vpc.grid(row=1, column=1, sticky="nsew", padx=10, pady=10)
         
-    def resize_image(self, image, max_width, max_height):
-        width, height = image.size
-        if width > max_width or height > max_height:
-            ratio = min(max_width / width, max_height / height)
-            new_width = int(width * ratio)
-            new_height = int(height * ratio)
-            resized_image = image.resize((new_width, new_height), Image.LANCZOS)
-            return resized_image
-        return image
-    
-    def center_window(self):
-        """Centers the window on the screen."""
-        screen_width = self.winfo_screenwidth()
-        screen_height = self.winfo_screenheight()
-        window_width = 600  # As specified in self.geometry
-        window_height = 350  # As specified in self.geometry
-        x = (screen_width - window_width) // 2
-        y = (screen_height - window_height) // 2
-        self.geometry(f"{window_width}x{window_height}+{x}+{y}")
+        bouton1v1 = Button(self, text="1 v 1", font=("Arial",20), command=lambda: self.creer_morpion1v1())
+        bouton1vpc = Button(self, text="1 v IA", font=("Arial",20), command=lambda: self.mode_morpion1vPC())
+
+        bouton1v1.grid(row=0, column=0, sticky="nsew", padx=10, pady=10)
+        bouton1vpc.grid(row=0, column=1, sticky="nsew", padx=10, pady=10)
+        
     
     def creer_morpion1v1(self):
         self.destroy()
@@ -1016,8 +908,6 @@ class Morpion_1v1(Tk):
         self.grid_columnconfigure(2, weight=1)
 
         self.configure(background='gray24')
-
-        self.center_window()
 
         self.liste_boutons = list()
 
@@ -1086,16 +976,6 @@ class Morpion_1v1(Tk):
         self.title("Morpion")
         
         self.compteur = 0
-
-    def center_window(self):
-
-        screen_width = self.winfo_screenwidth()
-        screen_height = self.winfo_screenheight()
-        window_width = 600
-        window_height = 450
-        x = (screen_width - window_width) // 2
-        y = (screen_height - window_height) // 2
-        self.geometry(f"{window_width}x{window_height}+{x}+{y}")
 
     def mode_de_jeu(self):
         self.destroy()
@@ -1200,7 +1080,7 @@ class Morpion_1v1(Tk):
     
     def ajouter_bouton_rejouer(self):
         rejouer_bouton = Button(self, text="Rejouer", command=self.reinitialiser_jeu, bg='gray24', fg='white', font=("Arial", 14))
-        rejouer_bouton.grid(column=0, row=5, columnspan=3, sticky="nsew", padx=3, pady=3)
+        rejouer_bouton.grid(column=0, row=5, columnspan=3, sticky="nsew", padx=10, pady=10)
 
     def reinitialiser_jeu(self):
         self.joueur_actuel = "X"
