@@ -875,19 +875,19 @@ class Mode_de_IA(Tk):
         self.logo_label.grid(row=0, column=0, columnspan=3, sticky="nsew", padx=10, pady=10)
 
         bouton1vfacile = Button(self, text="Facile", font=("Arial", 20), height=2, width=12,
-                                 command=lambda: self.creer_morpion_IA_Facile(), bg='SystemButtonFace', fg='black')
+                                 command=lambda: self.creer_morpion_IA_Facile(), bg='snow3', fg='black')
         bouton1vfacile.grid(column=0, row=1, sticky="nsew", padx=10, pady=10)
 
         bouton1vmoyen = Button(self, text="Moyen", font=("Arial", 20), height=2, width=12,
-                                command=lambda: self.creer_morpion_IA_Moyen(), bg='SystemButtonFace', fg='black')
+                                command=lambda: self.creer_morpion_IA_Moyen(), bg='snow3', fg='black')
         bouton1vmoyen.grid(column=1, row=1, sticky="nsew", padx=10, pady=10)
 
         bouton1vdifficile = Button(self, text="Difficile", font=("Arial", 20), height=2, width=12,
-                                  command=lambda: self.creer_morpion_IA_Difficile(), bg='SystemButtonFace', fg='black')
+                                  command=lambda: self.creer_morpion_IA_Difficile(), bg='snow3', fg='black')
         bouton1vdifficile.grid(column=2, row=1, sticky="nsew", padx=10, pady=10)
 
         boutonretour = Button(self, text="Retour", font=("Arial", 20), height=2, width=12,
-                                  command=lambda: self.retour_mode_jeu(), bg='SystemButtonFace', fg='black')
+                                  command=lambda: self.retour_mode_jeu(), bg='snow3', fg='black')
         boutonretour.grid(row=2, column=0, columnspan=3, sticky="nsew", padx=10, pady=10)
 
     def resize_image(self, image, max_width, max_height):
@@ -962,8 +962,8 @@ class Mode_de_jeu_morpion(Tk):
         self.logo_label = Label(self, image=self.logo_image, background='gray24')
         self.logo_label.grid(row=0, column=0, columnspan=2, sticky="nsew", padx=10, pady=10)
 
-        bouton1v1 = Button(self, text="1 v 1", font=("Arial",20), command=lambda: self.creer_morpion1v1(), bg='SystemButtonFace', fg='black')
-        bouton1vpc = Button(self, text="1 v PC", font=("Arial",20), command=lambda: self.mode_morpion1vPC(), bg='SystemButtonFace', fg='black')
+        bouton1v1 = Button(self, text="1 v 1", font=("Arial",20), command=lambda: self.creer_morpion1v1(), bg='snow3', fg='black')
+        bouton1vpc = Button(self, text="1 v PC", font=("Arial",20), command=lambda: self.mode_morpion1vPC(), bg='snow3', fg='black')
 
         bouton1v1.grid(row=1, column=0, sticky="nsew", padx=10, pady=10)
         bouton1vpc.grid(row=1, column=1, sticky="nsew", padx=10, pady=10)
