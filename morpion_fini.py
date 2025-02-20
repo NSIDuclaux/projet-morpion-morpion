@@ -309,7 +309,7 @@ class Morpion_1vPCdef_et_off(Tk):
         self.morpion = [[" ", " ", " "] for _ in range(3)]
         self.compteur = 0
         for bouton in self.liste_boutons:
-            bouton.config(text=" ", state=NORMAL, bg='white')
+            bouton.config(text=" ", state=NORMAL, bg='#d9d9d9')
         for widget in self.grid_slaves():
             if isinstance(widget, Label):
                 widget.destroy()
@@ -591,7 +591,7 @@ class Morpion_1vPCdef(Tk):
         self.morpion = [[" ", " ", " "] for _ in range(3)]
         self.compteur = 0
         for bouton in self.liste_boutons:
-            bouton.config(text=" ", state=NORMAL, bg='white')
+            bouton.config(text=" ", state=NORMAL, bg='#d9d9d9')
         for widget in self.grid_slaves():
             if isinstance(widget, Label):
                 widget.destroy()
@@ -837,7 +837,7 @@ class Morpion_1vPCalea(Tk):
         self.morpion = [[" ", " ", " "] for _ in range(3)]
         self.compteur = 0
         for bouton in self.liste_boutons:
-            bouton.config(text=" ", state=NORMAL, bg='white')
+            bouton.config(text=" ", state=NORMAL, bg='#d9d9d9')
         for widget in self.grid_slaves():
             if isinstance(widget, Label):
                 widget.destroy()
@@ -1207,7 +1207,7 @@ class Morpion_1v1(Tk):
         self.morpion = [[" ", " ", " "] for _ in range(3)]
         self.compteur = 0
         for bouton in self.liste_boutons:
-            bouton.config(text=" ", state=NORMAL, bg='white')
+            bouton.config(text=" ", state=NORMAL, bg='#d9d9d9')
         for widget in self.grid_slaves():
             if isinstance(widget, Label):
                 widget.destroy()
